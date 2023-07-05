@@ -13,6 +13,13 @@
 
   outputs = { nixpkgs, home-manager, darwin, ... }@inputs: {
 
+    darwinConfigurations."Alexs-Mac-mini" = darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [
+        ./hosts/mini/default.nix 
+      ];
+    };
+
     homeConfigurations = {
       mini = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;

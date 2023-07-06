@@ -2,4 +2,4 @@
 
 ## License
 
-Released under the MIT License. See [license](LICENSE.md) for details.
+This project is licensed under the terms of the [MIT license](LICENSE).

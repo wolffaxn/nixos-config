@@ -16,7 +16,7 @@
     darwinConfigurations."Alexs-Mac-mini" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
-        ./hosts/mini/default.nix 
+        ./hosts/mini/darwin-configuration.nix 
       ];
     };
 

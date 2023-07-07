@@ -26,6 +26,7 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [ 
           ./modules/home.nix 
+          ./modules/fish/default.nix
         ];
       };
     };

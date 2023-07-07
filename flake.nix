@@ -27,6 +27,7 @@
         modules = [ 
           ./modules/home.nix 
           ./modules/fish/default.nix
+          ./modules/gpg/default.nix
         ];
       };
     };

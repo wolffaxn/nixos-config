@@ -1,0 +1,47 @@
+# https://starship.rs/migrating-to-0.45.0/#prompt-order-has-been-replaced-by-a-root-level-format
+format = """\
+  $time\
+  $username\
+  $hostname\
+  $kubernetes\
+  $directory\
+  $docker_context\
+  $package\
+  $golang\
+  $java\
+  $nodejs\
+  $python\
+  $ruby\
+  $rust\
+  $terraform\
+  $memory_usage\
+  $aws\
+  $env_var\
+  $git_branch\
+  $git_commit\
+  $git_state\
+  $git_status\
+  $cmd_duration\
+  $custom\
+  $line_break\
+  $jobs\
+  $battery\
+  $character\
+"""
+
+[character]
+error_symbol = "[✖](bold red)"
+
+[directory]
+format = "in [$path]($style)[$read_only]($read_only_style) "
+
+[git_status]
+# replacement for 'show_sync_count = true'
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+
+[time]
+disabled = false
+style = "bold blue"
+time_format = "%T"

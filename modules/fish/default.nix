@@ -1,7 +1,9 @@
-{
-  programs.fish = {
-    enable = true;
-    shellInit = builtins.readFile ./init.fish;
+{ config, ... }: {
+  programs = {
+    fish.enable = true;
+    fish.shellInit = builtins.readFile ./init.fish;
+
+    starship.enable = true;
   };
 
   xdg.configFile."fish/conf.d/nix.fish".text = ''
@@ -10,4 +12,8 @@
       source '/nix/var/profiles/default/etc/profile.d/nix-daemon.fish'
     end
   '';
+
+  xdg.configFile."starship.toml" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./starship.toml;
+  };
 }

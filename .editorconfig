@@ -14,6 +14,10 @@ indent_size = 2
 ident_style = space
 ident_size = 2
 
+[*.toml]
+ident_style = space
+ident_size = 2
+
 [*.{yml,yaml}]
 indent_style = space
 indent_size = 2

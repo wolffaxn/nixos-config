@@ -29,6 +29,7 @@
           ./modules/fish/default.nix
           ./modules/git/default.nix
           ./modules/gpg/default.nix
+          ./modules/java.nix
         ];
       };
     };

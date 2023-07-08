@@ -1,0 +1,13 @@
+# set update schedule for github actions
+
+version: 2
+updates:
+  # enable version updates for github actions
+  - package-ecosystem: "github-actions"
+    # look for github actions in the root directory
+    directory: "/"
+    # check for updates every weekday
+    schedule:
+      interval: "daily"
+    assignees:
+      - "wolffaxn"

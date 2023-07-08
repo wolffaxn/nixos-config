@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -16,7 +16,7 @@
     darwinConfigurations."Alexs-Mac-mini" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
-        ./hosts/mini/darwin-configuration.nix 
+        ./hosts/mini/darwin-configuration.nix
       ];
     };
 
@@ -24,8 +24,8 @@
       mini = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         extraSpecialArgs = { inherit inputs; };
-        modules = [ 
-          ./modules/home.nix 
+        modules = [
+          ./modules/home.nix
           ./modules/fish/default.nix
           ./modules/git/default.nix
           ./modules/gpg/default.nix

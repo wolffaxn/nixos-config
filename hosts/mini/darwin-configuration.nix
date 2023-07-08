@@ -1,7 +1,7 @@
 { pkgs, ... }: {
 
   # allow unfree packages
-  nixpkgs.config.allowUnfree = true;    
+  nixpkgs.config.allowUnfree = true;
 
   nix.package = pkgs.nixUnstable;
 
@@ -22,7 +22,7 @@
     ];
     casks = [
       "iterm2"
-      "vscodium"      
+      "vscodium"
       # fonts
       "font-fira-code"
       "font-fira-mono"
@@ -30,8 +30,37 @@
       "font-jetbrains-mono"
     ];
     brews = [
-      "gpg"
+      "ansible"
+      "awscli"
+      "azure-cli"
+      "bat"
+      "bzip2"
+      "coreutils"
+      "curl"
+      "diff-so-fancy"
+      "dos2unix"
+      "fish"
+      "gh"
       "git"
+      "git-crypt"
+      "git-lfs"
+      "gpg"
+      "graphviz"
+      "htop-osx"
+      "httpie"
+      "hub"
+      "jq"
+      "molecule"
+      "moreutils"
+      "neofetch"
+      "openssl"
+      "packer"
+      "pandoc"
+      "plantuml"
+      "terraform"
+      "tmux"
+      # Skipping upx (no bottle for Apple Silicon)
+      #"upx"
       "zsh"
       "zsh-completions"
     ];

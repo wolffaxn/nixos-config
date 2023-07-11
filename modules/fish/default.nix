@@ -1,10 +1,15 @@
-{ config, ... }: {
+{ config, lib, pkgs, ... }: {
   programs = {
     fish.enable = true;
     fish.shellInit = builtins.readFile ./init.fish;
 
     starship.enable = true;
   };
+
+  system.activationScripts.postActivation.text = ''
+    # set fish as the default shell
+    sudo chsh -s ${lib.getBin pkgs.fish}/bin/fish alex
+  '';
 
   xdg.configFile."fish/conf.d/nix.fish".text = ''
     # nix

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -7,6 +7,11 @@
 
   # auto upgrade nix package and daemon service
   services.nix-daemon.enable = true;
+
+  system.activationScripts.postActivation.text = ''
+    # set fish as the default shell
+    sudo chsh -s ${lib.getBin pkgs.fish}/bin/fish alex
+  '';
 
   homebrew = {
     enable = true;

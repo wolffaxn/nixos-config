@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   programs.git = {
     enable = true;
     userName = "Alexander Wolff";
@@ -74,4 +74,9 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+      git-crypt
+      git-lfs
+  ];
 }

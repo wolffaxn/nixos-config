@@ -34,6 +34,7 @@
           ./modules/ssh
           ./modules/bat.nix
           ./modules/exa.nix
+          ./modules/xdg.nix
         ];
       };
     };

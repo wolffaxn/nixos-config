@@ -6,11 +6,6 @@
     starship.enable = true;
   };
 
-  system.activationScripts.postActivation.text = ''
-    # set fish as the default shell
-    sudo chsh -s ${lib.getBin pkgs.fish}/bin/fish alex
-  '';
-
   xdg.configFile."fish/conf.d/nix.fish".text = ''
     # nix
     if test -e '/nix/var/profiles/default/etc/profile.d/nix-daemon.fish'

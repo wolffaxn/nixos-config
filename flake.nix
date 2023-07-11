@@ -32,6 +32,7 @@
           ./modules/git
           ./modules/gpg
           ./modules/ssh
+          ./modules/bat.nix
           ./modules/exa.nix
         ];
       };

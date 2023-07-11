@@ -26,10 +26,11 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           ./modules/home.nix
-          ./modules/dev/default.nix
-          ./modules/fish/default.nix
-          ./modules/git/default.nix
-          ./modules/gpg/default.nix
+          ./modules/dev
+          ./modules/fish
+          ./modules/git
+          ./modules/gpg
+          ./modules/ssh
         ];
       };
     };

@@ -3,7 +3,6 @@
   programs.fish.interactiveShellInit = "set -gx GPG_TTY (tty)";
 
   home.packages = with pkgs; [
-    openssh
     yubikey-manager
   ];
 }

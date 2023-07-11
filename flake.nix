@@ -28,6 +28,7 @@
           ./modules/home.nix
           ./modules/dev
           ./modules/fish
+          ./modules/gh
           ./modules/git
           ./modules/gpg
           ./modules/ssh

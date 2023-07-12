@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   programs.go = {
     enable = true;
-    goPath = "./go";
     goPrivate = [
       "golang.org/x/lint/golint"
       "golang.org/x/tools/cmd/cover"

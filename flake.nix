@@ -31,6 +31,7 @@
           ./modules/gh
           ./modules/git
           ./modules/gpg
+          ./modules/neovim
           ./modules/ssh
           ./modules/starship
           ./modules/bat.nix

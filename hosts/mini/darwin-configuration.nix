@@ -38,14 +38,11 @@
       "ansible"
       "awscli"
       "azure-cli"
-      "bat"
       "bzip2"
       "coreutils"
       "curl"
       "diff-so-fancy"
       "dos2unix"
-      "fish"
-      "gh"
       "graphviz"
       "htop-osx"
       "httpie"
@@ -62,8 +59,6 @@
       "tmux"
       # Skipping upx (no bottle for Apple Silicon)
       #"upx"
-      "zsh"
-      "zsh-completions"
     ];
   };
 }

@@ -32,6 +32,7 @@
           ./modules/git
           ./modules/gpg
           ./modules/ssh
+          ./modules/starship
           ./modules/bat.nix
           ./modules/exa.nix
           ./modules/xdg.nix

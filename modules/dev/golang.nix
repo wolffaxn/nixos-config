@@ -15,6 +15,9 @@
   };
 
   home.packages = with pkgs; [
-    gopls # langserver
+    # required by vscode-go
+    delve
+    # langserver
+    gopls
   ];
 }

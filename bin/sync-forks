@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#
+# Sync remote fork from its parent
+#
+
+set -e
+
+function authenticate() {
+    # authenticate with GitHub CLI
+    gh auth login -h github.com
+}
+
+function update() {
+    echo "Running update..."
+    # list all forked repositories
+    local repositories=$(gh api "/users/wolffaxn/repos?type=forks&per_page=100" | jq -r '.[] | select(.fork == true) | .full_name')
+    # iterate over each repository and update it
+    for repository in $repositories; do
+        echo "Updating $repository..."
+        gh repo sync $repository
+    done
+    echo "Update completed."
+}
+
+authenticate
+update

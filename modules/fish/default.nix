@@ -10,4 +10,8 @@
       source '/nix/var/profiles/default/etc/profile.d/nix-daemon.fish'
     end
   '';
+
+  xdg.configFile."fish/functions" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./functions;
+  };
 }

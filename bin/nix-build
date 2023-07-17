@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+declare FLAKE=$(hostname -s)
+declare SYSTEM=".#darwinConfigurations.$FLAKE.system"
+
+cd $(dirname $(readlink -f $0))/..
+
+build() {
+    nix build --extra-experimental-features "nix-command flakes" $SYSTEM
+    ./result/sw/bin/darwin-rebuild switch --flake .
+}
+
+build

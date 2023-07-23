@@ -26,6 +26,7 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           ./modules/home.nix
+          ./modules/azure
           ./modules/dev
           ./modules/fish
           ./modules/gh

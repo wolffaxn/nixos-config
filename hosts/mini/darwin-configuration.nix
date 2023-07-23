@@ -37,7 +37,6 @@
     brews = [
       "ansible"
       "awscli"
-      "azure-cli"
       "bzip2"
       "coreutils"
       "curl"

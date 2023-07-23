@@ -1,0 +1,14 @@
+[cloud]
+name = AzureCloud
+
+[core]
+cache_ttl = 10
+collect_telemetry = no
+first_run = yes
+output = table
+
+[defaults]
+location = westeurope
+
+[logging]
+enable_log_file = yes

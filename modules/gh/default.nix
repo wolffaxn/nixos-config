@@ -1,13 +1,9 @@
-{ pkgs, ... }: {
-  programs.gh = {
-    enable = true;
-    settings = {
-      aliases = {
-        clone = "repo clone";
-        co = "pr checkout";
-      };
-      editor = "nvim";
-      git_protocol = "ssh";
-    };
+{ config, pkgs, ... }: {
+  home.packages = with pkgs; [
+    gh
+  ];
+
+  xdg.configFile."gh/config.yml" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./config.yml;
   };
 }

@@ -1,0 +1,16 @@
+[commit]
+  gpgsign = true
+
+[github]
+  user = wolffaxn
+
+[hub]
+  protocol = https
+
+[tag]
+  gpgsign = true
+
+[user]
+  name = "Alexander Wolff"
+  email = wolffaxn@gmail.com
+  signingKey = CC475A552C299D3B

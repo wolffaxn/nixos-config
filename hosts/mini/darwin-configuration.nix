@@ -40,7 +40,6 @@
       "bzip2"
       "coreutils"
       "curl"
-      "diff-so-fancy"
       "dos2unix"
       "graphviz"
       "htop-osx"

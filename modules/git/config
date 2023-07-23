@@ -1,0 +1,212 @@
+[alias]
+  # list aliases
+  aliases = !sh -c 'git config -l | grep alias | cut -c 7- | sort'
+
+  # shorthand for commit
+  c = commit
+  # commit with message
+  cm = commit -m
+  # amend the currently staged files to the latest commit reusing last commit message
+  amend = commit --amend --reuse-message=HEAD
+  # work in progress
+  wip = commit -am "WIP"
+
+  # checkout
+  co = checkout
+  # checkout a branch, creating it if necessary
+  cob = !sh -c 'git checkout -b $1 2> /dev/null || git checkout $1'
+
+  # list contributors with number of commits
+  contrib = shortlog --numbered --summary
+
+  # clean up local repository
+  cleanup = !sh -c 'git gc --prune=now && git remote prune origin'
+
+  # cherry pick
+  cp = cherry-pick
+
+  # find branches containing commit
+  fb = "!f() { git branch -a --contains $1; }; f"
+  # find commits by source code
+  fc = "!f() { git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --decorate --date=short -S$1; }; f"
+  # find commits by commit message
+  fm = "!f() { git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --decorate --date=short --grep=$1; }; f"
+  # find tags containing commit
+  ft = "!f() { git describe --always --contains $1; }; f"
+
+  # show logs with difference each commit introduces
+  changed = whatchanged
+
+  # view first commit of current branch
+  first = "!git log --abbrev-commit --first-parent --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' origin/master | tail -1"
+  # view abbreviated SHA, history graph and description of the latest n commits
+  last = "!f() { git log -n $1 --abbrev-commit --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'; }; f"
+  # view abbreviated SHA, history graph and description of all commits
+  oneline = "!git log --abbrev-commit --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+  # view abbreviated SHA, history graph and description of all todays commits
+  today = "!git log --abbrev-commit --date=relative --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --since='1 Day Ago'"
+  # view unpushed commits
+  unpushed = "!git log --abbrev-commit --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' origin/master..HEAD"
+  # 100 most often changed files
+  top100 = "!git log --pretty=format: --name-only | grep -v -e '^$' | sort | uniq -c | sort -rg | head -100"
+
+  # create a new git repository
+  new = "!f() { mkdir $1 && cd $1 && git init && git commit --allow-empty -m 'initial commit'; }; f"
+  # initialize, add all files and commit
+  this = "!git init && git commit --allow-empty -m 'initial commit'"
+
+  # show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+
+[apply]
+  # detect whitespace errors when applying a patch
+  whitespace = warn
+
+[branch]
+  # let the local branch track the remote branch when branching off a remote branch
+  autosetupmerge = true
+
+[color]
+  ui = auto
+  interactive = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  commit = green bold
+  frag = magenta bold
+  meta = yellow bold
+  new = green bold
+  old = red bold
+  whitespace = red reverse
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[core]
+  attributesfile = ~/.config/git/attributes
+  excludesfile = ~/.config/git/ignore
+
+  # default editor for commit messages and other inputs
+  editor = nvim
+
+  # convert CRLF to LF on commit (on a Linux or Mac system)
+  autocrlf = input
+  safecrlf = true
+
+  # tell git to be case-senstive
+  ignorecase = false
+
+  # make `git rebase` safer on macos
+  # see: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+  trustctime = false
+
+  # treat spaces before tabs and all kinds of trailing whitespace as an error
+  whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
+
+[diff]
+  # use more time to create better diffs
+  algorithm = patience
+  # 'git diff' will use (i)ndex, (w)ork tree, (c)ommit and (o)bject instead of
+  # a/b/c/d as prefixes for patches
+  mnemonicprefix = true
+  # detect copies as well as renames
+  renames = copies
+  # use vim
+  tool = vimdiff
+
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[fetch]
+  # delete local references on remotes that have deleted those branches
+  prune = true
+  # delete local tags that have been deleted on remote
+  pruneTags = true
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+
+[init]
+  # see https://sfconservancy.org/news/2020/jun/23/gitbranchname
+  defaultBranch = main
+
+[merge]
+  # 3-way diff
+  conflictstyle = diff3
+  # include summaries of merged commits in newly created merge commit messages
+  log = true
+  # always show a diffstat at the end of a merge
+  stat = true
+  # use nvimmerge
+  tool = nvimmerge
+
+[mergetool]
+  # don't keep the original backup files
+  keepBackup = false
+  # don't ask to confirm merge tool
+  prompt = false
+
+[pack]
+  # number of threads to spawn when searching for best delta matches
+  # 0 = autodetect the number of CPU's and set the number of threads accordingly
+  threads = 0
+
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  log = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
+
+[pull]
+  # enabling rebasing
+  rebase = true
+
+[push]
+  # When push.default is set to 'matching', git will push local branches
+  # to the remote branches that already exist with the same name.
+  default = matching
+  # push tags
+  followTags = true
+
+[rebase]
+  # use --autosquash by default
+  autoSquash = true
+  # use --autostash when running git pull --rebase and when rebasing interactively
+  autoStash = true
+  # warn about removed commits in interactive mode
+  missingCommitsCheck = warn
+
+[rerere]
+  # enabling the recording of resolved conflicts
+  enabled = true
+
+[status]
+  # show stash count
+  showStash = true
+  # show submodule summary
+  submoduleSummary = true
+  # show untracked files
+  showUntrackedFiles = all
+
+[url "git@github.com:"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+
+[include]
+  path = ~/.config/git/config.local

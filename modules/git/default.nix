@@ -4,7 +4,7 @@
       diff-so-fancy
       git-crypt
       git-lfs
-      lazygit
+      gitui
   ];
 
   xdg.configFile = {

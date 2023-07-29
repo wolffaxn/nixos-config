@@ -1,0 +1,41 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+env:
+  TERM: xterm-256color
+
+window:
+  decorations: buttonless
+  dynamic_padding: false
+  opacity: 0.9
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is not scaled
+  # by DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 25
+    y: 20
+
+# Font configuration (changes require restart)
+font:
+  # Normal (roman) font face
+  normal:
+    family: "JetBrains Mono"
+    style: Regular
+  # Bold font face
+  bold:
+    family: "JetBrains Mono"
+    style: Bold
+  # Medium font face
+  medium:
+    family: "JetBrains Mono"
+    style: Medium
+  # Italic font face
+  italic:
+    family: "JetBrains Mono"
+    style: Italic
+
+  # Point size of the font
+  size: 14.0

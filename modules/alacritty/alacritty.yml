@@ -9,7 +9,7 @@ env:
 window:
   decorations: buttonless
   dynamic_padding: false
-  opacity: 0.9
+  opacity: 0.8
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is not scaled
@@ -39,3 +39,6 @@ font:
 
   # Point size of the font
   size: 14.0
+
+import:
+  - ~/.config/alacritty/catppuccin-mocha.yml

@@ -36,6 +36,7 @@
           ./modules/neovim
           ./modules/ssh
           ./modules/starship
+          ./modules/wezterm
           ./modules/bat.nix
           ./modules/exa.nix
           ./modules/xdg.nix

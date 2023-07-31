@@ -5,6 +5,9 @@ return {
 
   -- colors
   color_scheme = "Catppuccin Mocha",
+  colors = {
+    background = "#0E1116",
+  },
 
   -- fonts
   font = wezterm.font("JetBrains Mono"),
@@ -16,13 +19,14 @@ return {
   use_fancy_tab_bar = true,
 
   -- window
+  window_background_opacity = 0.95,
   window_close_confirmation = "NeverPrompt",
   window_decorations = "RESIZE",
   adjust_window_size_when_changing_font_size = false,
   window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0,
+    left = "2cell",
+    right = "2cell",
+    top = "0.25cell",
+    bottom = "0.25cell",
   }
 }

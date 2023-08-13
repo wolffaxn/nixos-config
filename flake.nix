@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -12,9 +11,9 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, darwin, ... }@inputs: {
+  outputs = inputs @ { nixpkgs, home-manager, darwin, ... }: {
 
-    darwinConfigurations."Alexs-Mac-mini" = darwin.lib.darwinSystem {
+    darwinConfigurations."deimos" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         ./hosts/mini/darwin-configuration.nix
@@ -28,7 +27,7 @@
         modules = [
           ./modules/home.nix
           ./modules/alacritty
-          ./modules/azure
+          #./modules/azure
           ./modules/dev
           ./modules/fish
           ./modules/gh

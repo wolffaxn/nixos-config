@@ -16,7 +16,7 @@
     darwinConfigurations."deimos" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
-        ./hosts/mini/darwin-configuration.nix
+        ./machines/mini-m2/configuration.nix
       ];
     };
 

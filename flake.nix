@@ -21,25 +21,11 @@
     };
 
     homeConfigurations = {
-      mini = home-manager.lib.homeManagerConfiguration {
+      deimos = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-          ./modules/home.nix
-          ./modules/alacritty
-          #./modules/azure
-          ./modules/dev
-          ./modules/fish
-          ./modules/gh
-          ./modules/git
-          ./modules/gpg
-          ./modules/neovim
-          ./modules/ssh
-          ./modules/starship
-          ./modules/wezterm
-          ./modules/bat.nix
-          ./modules/exa.nix
-          ./modules/xdg.nix
+          ./machines/mini-m2/home.nix
         ];
       };
     };

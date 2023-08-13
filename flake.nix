@@ -13,11 +13,13 @@
 
   outputs = inputs @ { nixpkgs, home-manager, darwin, ... }: {
 
-    darwinConfigurations."deimos" = darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [
-        ./machines/mini-m2/configuration.nix
-      ];
+    darwinConfigurations = {
+      deimos = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./machines/mini-m2/configuration.nix
+        ];
+      };
     };
 
     homeConfigurations = {

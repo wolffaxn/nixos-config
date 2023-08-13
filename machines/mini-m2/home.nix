@@ -19,6 +19,46 @@
 
   programs.home-manager.enable = true;
 
+  home.enableNixpkgsReleaseCheck = false;
+
+  home.packages = with pkgs; [
+    # devops
+    ansible
+    awscli2
+    terraform
+
+    # filesystem
+    dos2unix
+    fd
+    ripgrep
+    curl
+
+    # compression
+    bzip2
+    gzip
+    unzip
+    xz
+    zip
+
+    # graphics
+    graphviz
+    plantuml
+
+    # networking
+    iftop
+    mtr
+
+    # misc
+    coreutils
+    httpie
+    jq
+    moreutils
+    neofetch
+    openssl
+    packer
+    pandoc
+  ];
+
   home.username = "alex";
   home.homeDirectory = (if pkgs.stdenv.isDarwin then "/Users/alex" else "/home/alex");
 

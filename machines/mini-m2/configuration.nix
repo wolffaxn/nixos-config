@@ -26,30 +26,7 @@
       "font-hack"
       "font-jetbrains-mono"
     ];
-    brews = [
-      "ansible"
-      "awscli"
-      "bzip2"
-      "coreutils"
-      "curl"
-      "dos2unix"
-      "graphviz"
-      "htop-osx"
-      "httpie"
-      "hub"
-      "jq"
-      "molecule"
-      "moreutils"
-      "neofetch"
-      "openssl"
-      "packer"
-      "pandoc"
-      "plantuml"
-      "terraform"
-      "tmux"
-      # Skipping upx (no bottle for Apple Silicon)
-      #"upx"
-    ];
+    brews = [];
   };
 
   nix = {

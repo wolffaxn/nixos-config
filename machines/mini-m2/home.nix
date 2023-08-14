@@ -49,6 +49,11 @@
     iftop
     mtr
 
+    # process
+    bottom
+    btop
+    htop
+
     # misc
     coreutils
     httpie

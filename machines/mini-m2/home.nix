@@ -5,6 +5,7 @@
     ../../home/aws
     #../../home/azure
     ../../home/dev
+    ../../home/direnv
     ../../home/fish
     ../../home/gh
     ../../home/git

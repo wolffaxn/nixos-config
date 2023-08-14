@@ -1,20 +1,20 @@
 { config, pkgs, ... }: {
 
   imports = [
-    ../../modules/alacritty
-    #../../modules/azure
-    ../../modules/dev
-    ../../modules/fish
-    ../../modules/gh
-    ../../modules/git
-    ../../modules/gpg
-    ../../modules/neovim
-    ../../modules/ssh
-    ../../modules/starship
-    ../../modules/wezterm
-    ../../modules/bat.nix
-    ../../modules/exa.nix
-    ../../modules/xdg.nix
+    ../../home/alacritty
+    #../../home/azure
+    ../../home/dev
+    ../../home/fish
+    ../../home/gh
+    ../../home/git
+    ../../home/gpg
+    ../../home/neovim
+    ../../home/ssh
+    ../../home/starship
+    ../../home/wezterm
+    ../../home/bat.nix
+    ../../home/exa.nix
+    ../../home/xdg.nix
   ];
 
   programs.home-manager.enable = true;

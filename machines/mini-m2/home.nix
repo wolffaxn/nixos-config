@@ -58,6 +58,17 @@
     openssl
     packer
     pandoc
+  ]
+  ++ lib.optionals pkgs.stdenv.isDarwin [
+    # container runtimes on macOS
+    colima
+  ]
+  ++ lib.optionals pkgs.stdenv.isLinux [
+    # container runtimes on Linux
+    #docker
+    #docker-compose
+    podman
+    podman-compose
   ];
 
   home.username = "alex";

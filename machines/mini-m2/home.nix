@@ -2,6 +2,7 @@
 
   imports = [
     ../../home/alacritty
+    ../../home/aws
     #../../home/azure
     ../../home/dev
     ../../home/fish
@@ -24,7 +25,6 @@
   home.packages = with pkgs; [
     # devops
     ansible
-    awscli2
     terraform
 
     # filesystem

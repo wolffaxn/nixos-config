@@ -1,5 +1,14 @@
-{ config, pkgs, ... }: {
-
+{ config, pkgs, ... }: let
+  wolffaxn-bin = (pkgs.stdenv.mkDerivation {
+    name = "wolffaxn-bin";
+    version = "unstable";
+    src = ../../bin;
+    installPhase = ''
+      mkdir -p $out/bin
+      cp * $out/bin
+    '';
+  });
+in {
   imports = [
     ../../home/alacritty
     ../../home/aws
@@ -24,6 +33,9 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
+    # own shell scripts
+    wolffaxn-bin
+
     # devops
     ansible
     terraform

@@ -25,7 +25,6 @@ format = """\
   $custom\
   $line_break\
   $jobs\
-  $battery\
   $character\
 """
 

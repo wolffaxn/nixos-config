@@ -40,6 +40,9 @@ in {
     ansible
     terraform
 
+    # editor
+    vscodium
+
     # filesystem
     dos2unix
     fd
@@ -79,6 +82,13 @@ in {
   ++ lib.optionals pkgs.stdenv.isDarwin [
     # container runtimes on macOS
     colima
+    # vm host for macOS & iOS
+    utm
+
+    ## misc
+
+    # keepass fork (need it only on macOS)
+    keepassxc
   ]
   ++ lib.optionals pkgs.stdenv.isLinux [
     # container runtimes on Linux

@@ -18,8 +18,8 @@
       "homebrew/cask-fonts"
     ];
     casks = [
+      "google-chrome"
       "iterm2"
-      "vscodium"
       # fonts
       "font-fira-code"
       "font-fira-mono"

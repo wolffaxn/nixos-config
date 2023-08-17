@@ -1,7 +1,12 @@
 { config, lib, pkgs, ... }: {
   programs = {
-    fish.enable = true;
-    fish.shellInit = builtins.readFile ./init.fish;
+    fish = {
+      enable = true;
+      shellInit = builtins.readFile ./init.fish;
+      interactiveShellInit = ''
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      '';
+    };
   };
 
   xdg.configFile."fish/conf.d/nix.fish".text = ''

@@ -23,6 +23,7 @@ in {
     ../../home/ssh
     ../../home/starship
     ../../home/wezterm
+    ../../home/yabai
     ../../home/bat.nix
     ../../home/exa.nix
     ../../home/xdg.nix

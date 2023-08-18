@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# default layout (can be bsp, stack or float)
+yabai -m config layout bsp
+
+# new window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+
+# padding set to 5px
+yabai -m config bottom_padding 5
+yabai -m config left_padding 5
+yabai -m config right_padding 5
+yabai -m config top_padding 5
+yabai -m config window_gap 5
+
+# -- mouse settings --
+
+# center mouse on window with focus
+yabai -m config mouse_follows_focus on
+
+# set modifier + left-click drag to move window
+yabai -m config mouse_action1 move
+# set modifier + right-click drag to resize window
+yabai -m config mouse_action2 resize
+# modifier for clicking and dragging with mouse
+yabai -m config mouse_modifier alt
+
+# when window is dropped in center of another window, swap them
+# on macOS 13.5 with yabai-v5.0.6: unknown domain 'mouse_drop_action'
+#yabai -m mouse_drop_action swap

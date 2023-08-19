@@ -63,7 +63,11 @@ in {
 
     # networking
     iftop
+    iperf3
     mtr
+    netcat
+    nmap
+
 
     # process
     bottom

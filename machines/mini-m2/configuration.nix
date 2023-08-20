@@ -64,8 +64,12 @@
     };
   };
 
-  # allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    # allow broken nixpkgs
+    allowBroken = true;
+    # allow unfree packages
+    allowUnfree = true;
+  };
 
   services.nix-daemon.enable = true;
 

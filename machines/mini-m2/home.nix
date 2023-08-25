@@ -1,14 +1,4 @@
-{ config, pkgs, ... }: let
-  wolffaxn-bin = (pkgs.stdenv.mkDerivation {
-    name = "wolffaxn-bin";
-    version = "unstable";
-    src = ../../bin;
-    installPhase = ''
-      mkdir -p $out/bin
-      cp * $out/bin
-    '';
-  });
-in {
+{ config, pkgs, ... }: {
   imports = [
     ../../home/alacritty
     ../../home/aws
@@ -22,8 +12,10 @@ in {
     ../../home/neovim
     ../../home/ssh
     ../../home/starship
+    ../../home/utils-bin
     ../../home/wezterm
     ../../home/yabai
+    #../../home/zsh
     ../../home/bat.nix
     ../../home/exa.nix
     ../../home/xdg.nix
@@ -34,9 +26,6 @@ in {
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
-    # own shell scripts
-    wolffaxn-bin
-
     # devops
     ansible
     terraform

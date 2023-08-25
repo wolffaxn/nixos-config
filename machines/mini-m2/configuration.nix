@@ -5,6 +5,18 @@
     ./common.nix
   ];
 
+  # fonts.fontDir.enable = true;
+  # fonts.fonts = with pkgs; [
+  #   recursive
+  #   (nerdfonts.override {
+  #     fonts = [
+  #       "FiraCode"
+  #       "Hack"
+  #       "JetBrainsMono"
+  #     ];
+  #   })
+  # ];
+
   # configure DNS for WiFi
   networking.knownNetworkServices = ["Wi-Fi"];
   # use cloudflare

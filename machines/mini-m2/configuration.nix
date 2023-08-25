@@ -5,6 +5,11 @@
     ./common.nix
   ];
 
+  # configure DNS for WiFi
+  networking.knownNetworkServices = ["Wi-Fi"];
+  # use cloudflare
+  networking.dns = ["1.1.1.1" "1.0.0.1"];
+
   system.activationScripts.postActivation.text = ''
     # set fish as the default shell
     sudo chsh -s ${lib.getBin pkgs.fish}/bin/fish alex

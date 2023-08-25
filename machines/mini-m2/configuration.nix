@@ -10,6 +10,11 @@
   # use cloudflare
   networking.dns = ["1.1.1.1" "1.0.0.1"];
 
+  system.keyboard = {
+    enableKeyMapping = true;
+    remapCapsLockToEscape = true;
+  };
+
   system.activationScripts.postActivation.text = ''
     # set fish as the default shell
     sudo chsh -s ${lib.getBin pkgs.fish}/bin/fish alex

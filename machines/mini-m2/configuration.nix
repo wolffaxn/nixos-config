@@ -18,6 +18,7 @@
       "homebrew/cask-fonts"
     ];
     casks = [
+      "amethyst"
       "google-chrome"
       "iterm2"
       # fonts

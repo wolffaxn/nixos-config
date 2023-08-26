@@ -3,6 +3,7 @@
     ../../home/alacritty
     ../../home/aws
     #../../home/azure
+    ../../home/cli
     ../../home/dev
     ../../home/direnv
     ../../home/fish

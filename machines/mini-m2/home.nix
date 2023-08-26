@@ -18,6 +18,7 @@
     #../../home/zsh
     ../../home/bat.nix
     ../../home/exa.nix
+    ../../home/fonts.nix
     ../../home/xdg.nix
   ];
 

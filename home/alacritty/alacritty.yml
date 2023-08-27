@@ -18,6 +18,11 @@ window:
     x: 25
     y: 20
 
+dynamic_title: true
+
+cursor:
+  style: Block
+
 # Font configuration (changes require restart)
 font:
   # Normal (roman) font face

@@ -23,78 +23,94 @@
 
   programs.home-manager.enable = true;
 
-  home.enableNixpkgsReleaseCheck = false;
+  home = {
+    enableNixpkgsReleaseCheck = false;
 
-  home.packages = with pkgs; [
-    # devops
-    ansible
-    terraform
+    packages = with pkgs; [
+      # devops
+      ansible
+      terraform
 
-    # editor
-    vscodium
+      # editor
+      vscodium
 
-    # filesystem
-    dos2unix
-    fd
-    ripgrep
-    curl
+      # filesystem
+      dos2unix
+      fd
+      ripgrep
+      curl
 
-    # compression
-    bzip2
-    gzip
-    unzip
-    xz
-    zip
+      # compression
+      bzip2
+      gzip
+      unzip
+      xz
+      zip
 
-    # graphics
-    graphviz
-    plantuml
+      # graphics
+      graphviz
+      plantuml
 
-    # networking
-    iftop
-    iperf3
-    mtr
-    netcat
-    nmap
+      # networking
+      iftop
+      iperf3
+      mtr
+      netcat
+      nmap
 
-    # process
-    bottom
-    btop
-    htop
+      # process
+      bottom
+      btop
+      htop
 
-    # misc
-    coreutils
-    httpie
-    jq
-    moreutils
-    neofetch
-    openssl
-    packer
-    pandoc
-  ]
-  ++ lib.optionals pkgs.stdenv.isDarwin [
-    # container runtime on macOS
-    colima
-    # vm host for macOS & iOS
-    utm
+      # misc
+      coreutils
+      httpie
+      jq
+      moreutils
+      neofetch
+      openssl
+      packer
+      pandoc
+    ]
+    ++ lib.optionals pkgs.stdenv.isDarwin [
+      # container runtime on macOS
+      colima
+      # vm host for macOS & iOS
+      utm
 
-    # keepass fork (need it only on macOS)
-    keepassxc
-    
-    # vpn
-    tailscale
-    wireguard-tools
-  ]
-  ++ lib.optionals pkgs.stdenv.isLinux [
-    # container runtimes on Linux
-    #docker
-    #docker-compose
-    podman
-    podman-compose
-  ];
+      # keepass fork (need it only on macOS)
+      keepassxc
+      
+      # vpn
+      tailscale
+      wireguard-tools
+    ]
+    ++ lib.optionals pkgs.stdenv.isLinux [
+      # container runtimes on Linux
+      #docker
+      #docker-compose
+      podman
+      podman-compose
+    ];
 
-  home.username = "alex";
-  home.homeDirectory = (if pkgs.stdenv.isDarwin then "/Users/alex" else "/home/alex");
+    sessionVariables = {
+      EDITOR = "nvim";
+      
+      LANG = "en_US.UTF-8";
+      LANGUAGE = "en_US";
+      LC_ALL = "en_US.UTF-8";
+      LC_CTYPE = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
 
-  home.stateVersion = "23.05";
+      PAGER = "less -FirSwX";
+    };
+
+    username = "alex";
+    homeDirectory = (if pkgs.stdenv.isDarwin then "/Users/alex" else "/home/alex");
+
+    stateVersion = "23.05";
+  };
 }

@@ -14,6 +14,7 @@
       gaa = "git add -A";
       gb = "git branch";
       gc = "git commit";
+      gca = "git commit --amend --reuse-message=HEAD";
       gcm = "git commit -sm";
       gco = "git checkout";
       gcp = "git cherry-pick";

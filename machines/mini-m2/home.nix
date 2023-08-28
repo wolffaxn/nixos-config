@@ -57,7 +57,6 @@
     netcat
     nmap
 
-
     # process
     bottom
     btop
@@ -74,15 +73,17 @@
     pandoc
   ]
   ++ lib.optionals pkgs.stdenv.isDarwin [
-    # container runtimes on macOS
+    # container runtime on macOS
     colima
     # vm host for macOS & iOS
     utm
 
-    ## misc
-
     # keepass fork (need it only on macOS)
     keepassxc
+    
+    # vpn
+    tailscale
+    wireguard-tools
   ]
   ++ lib.optionals pkgs.stdenv.isLinux [
     # container runtimes on Linux

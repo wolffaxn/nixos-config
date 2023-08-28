@@ -2,17 +2,11 @@
   # list aliases
   aliases = !sh -c 'git config -l | grep alias | cut -c 7- | sort'
 
-  # shorthand for commit
-  c = commit
-  # commit with message
-  cm = commit -m
   # amend the currently staged files to the latest commit reusing last commit message
   amend = commit --amend --reuse-message=HEAD
   # work in progress
   wip = commit -am "WIP"
 
-  # checkout
-  co = checkout
   # checkout a branch, creating it if necessary
   cob = !sh -c 'git checkout -b $1 2> /dev/null || git checkout $1'
 

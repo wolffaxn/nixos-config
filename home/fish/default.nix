@@ -5,6 +5,29 @@
     shellInit = builtins.readFile ./init.fish;
 
     shellAliases = {
+      # cd shorthand
+      ".." = "cd ..";
+      "2." = "cd ../..";
+
+      # clear screen
+      cls = "clear";
+      
+      # disk free, in gigabytes
+      df = "df -h";
+      # calculates total disk usage for a folder
+      du = "du -h -c";
+  
+      # enable colors in grep
+      grep ="grep --color=auto";
+
+      # make some desctructive commands more interactive
+      cp = "cp -i";
+      mv = "mv -i";
+      rm = "rm -i";
+  
+      # get week number
+      week = "date +%V";
+      
       # docker
       d = "docker";
       

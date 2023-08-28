@@ -1,10 +1,8 @@
 { config, lib, pkgs, ... }: {
   programs.fish = {
     enable = true;
+    interactiveShellInit = builtins.readFile ./config.fish;
     shellInit = builtins.readFile ./init.fish;
-    interactiveShellInit = ''
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-    '';
 
     shellAliases = {
       # docker

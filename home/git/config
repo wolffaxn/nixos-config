@@ -6,7 +6,11 @@
   amend = commit --amend --reuse-message=HEAD
   # work in progress
   wip = commit -am "WIP"
-
+  
+  # commit
+  ci = commit
+  # checkout
+  co = checkout
   # checkout a branch, creating it if necessary
   cob = !sh -c 'git checkout -b $1 2> /dev/null || git checkout $1'
 
@@ -18,6 +22,12 @@
 
   # cherry pick
   cp = cherry-pick
+
+  # reset
+  destroy = reset --hard
+
+  # merge
+  ffm = merge --ff-only
 
   # find branches containing commit
   fb = "!f() { git branch -a --contains $1; }; f"
@@ -32,7 +42,7 @@
   changed = whatchanged
 
   # view first commit of current branch
-  first = "!git log --abbrev-commit --first-parent --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' origin/master | tail -1"
+  first = "!git log --abbrev-commit --first-parent --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' origin/main | tail -1"
   # view abbreviated SHA, history graph and description of the latest n commits
   last = "!f() { git log -n $1 --abbrev-commit --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'; }; f"
   # view abbreviated SHA, history graph and description of all commits
@@ -40,7 +50,7 @@
   # view abbreviated SHA, history graph and description of all todays commits
   today = "!git log --abbrev-commit --date=relative --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --since='1 Day Ago'"
   # view unpushed commits
-  unpushed = "!git log --abbrev-commit --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' origin/master..HEAD"
+  unpushed = "!git log --abbrev-commit --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' origin/main..HEAD"
   # 100 most often changed files
   top100 = "!git log --pretty=format: --name-only | grep -v -e '^$' | sort | uniq -c | sort -rg | head -100"
 
@@ -48,6 +58,11 @@
   new = "!f() { mkdir $1 && cd $1 && git init && git commit --allow-empty -m 'initial commit'; }; f"
   # initialize, add all files and commit
   this = "!git init && git commit --allow-empty -m 'initial commit'"
+
+  # status
+  st = status -uall -b
+  # submodule
+  sub = submodule update --remote --recursive
 
   # show verbose output about tags, branches or remotes
   tags = tag -l
@@ -65,24 +80,6 @@
 [color]
   ui = auto
   interactive = auto
-
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-
-[color "diff"]
-  commit = green bold
-  frag = magenta bold
-  meta = yellow bold
-  new = green bold
-  old = red bold
-  whitespace = red reverse
-
-[color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
 
 [core]
   attributesfile = ~/.config/git/attributes

@@ -65,6 +65,7 @@
       htop
 
       # misc
+      cmatrix
       coreutils
       httpie
       jq

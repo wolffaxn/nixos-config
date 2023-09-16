@@ -101,6 +101,20 @@ $ nix build ./#darwinConfigurations.deimos.system
 $ ./result/sw/bin/darwin-rebuild switch --flake .
 ```
 
+# Update
+
+Update nix flake:
+
+```sh
+$ nix flake update
+```
+
+Run garbage collector:
+
+```sh
+$ nix-collect-garbage
+```
+
 # Uninstall
 
 ## Uninstall Home Manager

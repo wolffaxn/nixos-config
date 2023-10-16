@@ -43,8 +43,8 @@
 
   xdg.configFile."fish/conf.d/nix.fish".text = ''
     # nix
-    if test -e '/nix/var/profiles/default/etc/profile.d/nix-daemon.fish'
-      source '/nix/var/profiles/default/etc/profile.d/nix-daemon.fish'
+    if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
+      source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
     end
   '';
 

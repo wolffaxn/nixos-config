@@ -23,58 +23,26 @@ Open a new login shell and show nix version:
 
 ```sh
 $ nix --version
-nix (Nix) 2.15.0
+nix (Nix) 2.18.1
 
-```
-
-Test the install:
-
-```sh
-$ nix-shell -p nix-info --run "nix-info -m"
- - system: `"aarch64-darwin"`
- - host os: `Darwin 22.5.0, macOS 13.4.1`
- - multi-user?: `yes`
- - sandbox: `no`
- - version: `nix-env (Nix) 2.15.0`
- - nixpkgs: `/nix/store/h1dm1rf84gjnmk6m5g6jdaa4xik00jfx-source`
-
-```
-
-After installing Nix I'm getting "SSL peer certificate or SSH remote key was not OK (60)" when I try to hit the cache. This fixes the problem: [#3261](https://github.com/NixOS/nix/issues/3261)
-
-```sh
-$ sudo rm /etc/ssl/certs/ca-certificates.crt
-$ sudo ln -s /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
 ```
 
 ## Install Home Manager
 
-Add Home Manager channel:
+To install Home manager you can use standalone home-manager on non-nixos system.
 
 ```sh
-$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-$ nix-channel --update
+$ nix run home-manager/master -- init --switch
 ```
 
-Run the Home Manager installation command and create the first Home Manager generation:
+This will generate a flake.nix and a home.nix file in ~/.config/home/manager (creating the directory if it does not exist).
 
-```sh
-$ nix-shell '<home-manager>' -A install
-```
-
-Enable experimental features:
-
-```sh
-mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-```
-
-## Applying
+## Install dotfiles
 
 Run new shell with Git and OpenSSH installed (bundled version of OpenSSH with macOS Monterey doesn't support ed25519-sk keys):
 
 ```sh
-$ nix-shell -p git openssh
+$ nix shell nixpkgs#git nixpkgs#openssh
 ```
 
 Clone dotfiles:
@@ -85,13 +53,17 @@ Cloning into '/Users/alex/.dotfiles'...
 Confirm user presence for key ED25519-SK SHA256:qnkGlZ1hUW3Ub7j3l440jE/8fA+z7hHzMc8U6RYKcfI
 ...
 ```
+
 Run Home Manager:
 
 ```sh
 $ cd ~/.dotfiles
 
+# allow unfree packages
+$ export NIXPKGS_ALLOW_UNFREE=1
+
 $ home-manager build
-$ home-manager switch --flake ".#deimos"
+$ home-manager switch --impure --flake .#deimos
 ```
 
 On macOS you may also:
@@ -101,18 +73,26 @@ $ nix build ./#darwinConfigurations.deimos.system
 $ ./result/sw/bin/darwin-rebuild switch --flake .
 ```
 
-# Update
+# Update & Garbage collect
 
-Update nix flake:
+This will update all input channels to the latest version. After that you need to run home-manager to apply the changes.
 
 ```sh
 $ nix flake update
+$ home-manager switch --flake .#deimos
 ```
 
-Run garbage collector:
+Run garbage collector
 
 ```sh
-$ nix-collect-garbage
+$ nix store gc
+```
+
+Rerun nix-index
+
+```sh
+$ export NIX_PATH=nixpkgs=flake:nixpkgs
+$ nix run github:nix-community/nix-index#nix-index
 ```
 
 # Uninstall
@@ -133,14 +113,13 @@ To run the uninstaller:
 $ /nix/nix-installer uninstall
 ```
 
-After uninstall you have to remove the following files manually.
+# Bugs
+
+After installing Nix I'm getting "SSL peer certificate or SSH remote key was not OK (60)" when I try to hit the cache. This fixes the problem: [#3261](https://github.com/NixOS/nix/issues/3261)
 
 ```sh
-$ rm ~/.nix-channels
-$ rm -Rf ~/.nix-defexpr
-$ rm -Rf ~/.nix-profile
-$ rm -Rf ~/.cache/nix
-$ rm -Rf ~/.local/state/nix
+$ sudo rm /etc/ssl/certs/ca-certificates.crt
+$ sudo ln -s /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
 ```
 
 # License

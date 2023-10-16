@@ -17,6 +17,8 @@
 
   outputs = { nixpkgs, home-manager, darwin, ... }@inputs: {
 
+    defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
+
     # macOS systems using nix-darwin
     darwinConfigurations = {
       deimos = darwin.lib.darwinSystem {

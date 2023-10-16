@@ -1,7 +1,7 @@
 { ... }: {
   imports = [
     ./bat.nix
-    ./exa.nix
+    ./eza.nix
     ./nix.nix
   ];
 }

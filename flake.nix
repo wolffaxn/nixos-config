@@ -15,7 +15,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ { nixpkgs, home-manager, darwin, ... }: {
+  outputs = { nixpkgs, home-manager, darwin, ... }@inputs: {
 
     # macOS systems using nix-darwin
     darwinConfigurations = {

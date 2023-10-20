@@ -1,0 +1,145 @@
+#
+# sourced in interactive shells
+#
+
+# uncomment this and the last line for zprof info
+#zmodload zsh/zprof
+
+# Contains sensitive data which are not pushed to GitHub.
+[ -r $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
+
+export DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+
+# start tmux
+if [ "$TMUX" = "" ]; then
+    # check for old session
+    if [ "$(tmux ls | grep -vE 'attached' | wc -l)" -gt "0" ]; then
+        # attach to old session, if already exists
+        tmux a -t "$(tmux ls | grep -vE 'attached' | cut -d ":" -f1 | head -n 1)"
+    else
+        # start new session
+        tmux
+    fi
+fi
+
+#
+# Path configuration
+#
+
+# ensure path arrays do not contain duplicates.
+typeset -gU path
+
+# set the list of directories that zsh searches for programs
+path=(
+  /usr/local/bin
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
+  /usr/local/sbin
+  /usr/local/opt/make/libexec/gnubin
+  $DOTFILES/bin
+  # Golang bin path
+  $HOME/.golang/bin
+  # Rust bin path
+  $HOME/.cargo/bin
+  # NPM bin path
+  $XDG_DATA_HOME/npm/bin
+  $path
+)
+
+# export to sub-processes (make it inherited by child processes)
+export path
+
+#
+# Exports
+#
+
+export EDITOR="nvim"
+
+# set language and encoding
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_COLLATE=C
+export LC_CTYPE=en_US.UTF-8
+
+# support colors in less
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+#
+# History
+#
+
+# command history configuration
+HISTFILE=$ZDOTDIR/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+# allow multiple sessions to append to one zsh command history
+setopt append_history
+# Save each command’s beginning timestamp and the duration to the history file
+setopt extended_history
+# when trimming history, lose oldest duplicates first
+setopt hist_expire_dups_first
+# don't show duplicate history entires
+setopt hist_find_no_dups
+# ignore duplication command history list
+setopt hist_ignore_dups
+# remove command line from history list when first character on the line is a space
+setopt hist_ignore_space
+# remove unnecessary blanks from history
+setopt hist_reduce_blanks
+# don't execute, just expand history
+setopt hist_verify
+# append to the history file immediately
+setopt inc_append_history
+# share history between instances
+setopt share_history
+
+#
+# Prompt
+#
+
+# init starship cross-shell prompt
+eval "$(starship init zsh)"
+
+# golang
+export GOPATH=$HOME/Projects/go
+export PATH=$GOPATH/bin:$PATH
+
+#
+# Autocompletion
+#
+
+# enable completion
+autoload -Uz compinit
+compinit
+
+autoload bashcompinit
+bashcompinit
+
+zmodload -i zsh/complist
+
+#
+# Key Bindings
+#
+
+# use emacs-like key bindings by default:
+bindkey -e
+
+if command -v antibody > /dev/null; then
+    if [[ ! -e "$ZDOTDIR/.zsh_plugins.sh" ]]; then
+        antibody bundle < "$ZDOTDIR/.antibody_bundle" > "$ZDOTDIR/.zsh_plugins.sh"
+    fi
+
+    # load antibody plugins
+    source $ZDOTDIR/.zsh_plugins.sh
+fi
+
+#zprof

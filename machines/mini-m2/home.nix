@@ -17,7 +17,7 @@
     ../../home/wezterm
     ../../home/yabai
     ../../home/zellij
-    #../../home/zsh
+    ../../home/zsh
     ../../home/fonts.nix
     ../../home/xdg.nix
   ];

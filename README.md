@@ -59,7 +59,9 @@ Run Home Manager:
 ```sh
 $ cd ~/.dotfiles
 
-# allow unfree packages
+# to temporarily allow broken packages
+$ export NIXPKGS_ALLOW_BROKEN=1
+# to temporarily allow unfree packages
 $ export NIXPKGS_ALLOW_UNFREE=1
 
 $ home-manager build

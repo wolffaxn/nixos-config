@@ -2,7 +2,7 @@
   imports = [
     ../../home/alacritty
     ../../home/aws
-    #../../home/azure
+    ../../home/azure
     ../../home/cli
     ../../home/dev
     ../../home/direnv

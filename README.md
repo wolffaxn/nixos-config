@@ -59,9 +59,8 @@ Run Home Manager:
 ```sh
 $ cd ~/.dotfiles
 
-# to temporarily allow broken packages
+# to temporarily allow broken and unfree packages
 $ export NIXPKGS_ALLOW_BROKEN=1
-# to temporarily allow unfree packages
 $ export NIXPKGS_ALLOW_UNFREE=1
 
 $ home-manager build
@@ -81,7 +80,7 @@ This will update all input channels to the latest version. After that you need t
 
 ```sh
 $ nix flake update
-$ home-manager switch --flake .#deimos
+$ home-manager switch --impure --flake .#deimos
 ```
 
 Run garbage collector

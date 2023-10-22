@@ -20,6 +20,7 @@
       "amethyst"
       "google-chrome"
       "iterm2"
+      "spotify"
     ];
     brews = [];
   };

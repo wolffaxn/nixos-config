@@ -21,4 +21,7 @@
   '';
 
   time.timeZone = "Europe/Berlin";
+
+  # set home directory (see https://github.com/nix-community/home-manager/issues/4026)
+  users.users.alex.home = "/Users/alex";
 }

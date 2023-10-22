@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, darwin, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: {
 
     defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
 
@@ -28,17 +28,12 @@
       deimos = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
+          home-manager.darwinModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            #home-manager.useUserPackages = true;
+            home-manager.users.alex = import ./machines/mini-m2/home.nix;
+          }
           ./machines/mini-m2/configuration.nix
-        ];
-      };
-    };
-
-    homeConfigurations = {
-      deimos = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          ./machines/mini-m2/home.nix
         ];
       };
     };

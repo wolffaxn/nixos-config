@@ -110,9 +110,6 @@
       PAGER = "less -FirSwX";
     };
 
-    username = "alex";
-    homeDirectory = (if pkgs.stdenv.isDarwin then "/Users/alex" else "/home/alex");
-
     stateVersion = "23.05";
   };
 }

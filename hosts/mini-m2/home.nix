@@ -1,5 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
+    ./fonts.nix
+    ./packages.nix
     ../../modules/alacritty
     ../../modules/aws
     ../../modules/azure
@@ -18,83 +20,14 @@
     ../../modules/yabai
     ../../modules/zellij
     ../../modules/zsh
-    ../../modules/fonts.nix
     ../../modules/xdg.nix
   ];
 
+  # let Home Manager install and manage itself
   programs.home-manager.enable = true;
 
   home = {
     enableNixpkgsReleaseCheck = false;
-
-    packages = with pkgs; [
-      # devops
-      ansible
-      terraform
-
-      # editor
-      vscodium
-
-      # filesystem
-      dos2unix
-      fd
-      ripgrep
-      curl
-
-      # compression
-      bzip2
-      gzip
-      unzip
-      xz
-      zip
-
-      # graphics
-      graphviz
-      plantuml
-
-      # networking
-      iftop
-      iperf3
-      mtr
-      netcat
-      nmap
-
-      # process
-      bottom
-      btop
-      htop
-
-      # misc
-      cmatrix
-      coreutils
-      httpie
-      jq
-      moreutils
-      neofetch
-      openssl
-      packer
-      pandoc
-    ]
-    ++ lib.optionals pkgs.stdenv.isDarwin [
-      # container runtime on macOS
-      colima
-      # vm host for macOS & iOS
-      utm
-
-      # keepass fork (need it only on macOS)
-      keepassxc
-      
-      # vpn
-      tailscale
-      wireguard-tools
-    ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
-      # container runtimes on Linux
-      #docker
-      #docker-compose
-      podman
-      podman-compose
-    ];
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -109,6 +42,9 @@
 
       PAGER = "less -FirSwX";
     };
+
+    username = "alex";
+    homeDirectory = "/Users/alex";
 
     stateVersion = "23.05";
   };

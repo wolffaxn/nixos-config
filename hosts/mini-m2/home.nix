@@ -1,25 +1,25 @@
 { config, pkgs, ... }: {
   imports = [
-    ../../home/alacritty
-    ../../home/aws
-    ../../home/azure
-    ../../home/cli
-    ../../home/dev
-    ../../home/direnv
-    ../../home/fish
-    ../../home/gh
-    ../../home/git
-    ../../home/gpg
-    ../../home/neovim
-    ../../home/ssh
-    ../../home/starship
-    ../../home/utils-bin
-    ../../home/wezterm
-    ../../home/yabai
-    ../../home/zellij
-    ../../home/zsh
-    ../../home/fonts.nix
-    ../../home/xdg.nix
+    ../../modules/alacritty
+    ../../modules/aws
+    ../../modules/azure
+    ../../modules/cli
+    ../../modules/dev
+    ../../modules/direnv
+    ../../modules/fish
+    ../../modules/gh
+    ../../modules/git
+    ../../modules/gpg
+    ../../modules/neovim
+    ../../modules/ssh
+    ../../modules/starship
+    ../../modules/utils-bin
+    ../../modules/wezterm
+    ../../modules/yabai
+    ../../modules/zellij
+    ../../modules/zsh
+    ../../modules/fonts.nix
+    ../../modules/xdg.nix
   ];
 
   programs.home-manager.enable = true;

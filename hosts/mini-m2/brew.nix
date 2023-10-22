@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ ... }: {
 
   homebrew = {
     enable = true;
@@ -8,21 +8,24 @@
 
     onActivation = {
       autoUpdate = true;
+      # "zap" removes manually installed brews and casks
       cleanup = "zap";
       upgrade = true;
     };
+    brews = [
 
-    taps = [
-      # pre-configuration for brew sources
-      "homebrew/cask"
     ];
     casks = [
       "amethyst"
       "brave-browser"
       "google-chrome"
       "iterm2"
+      "karabiner-elements"
       "spotify"
     ];
-    brews = [];
+    taps = [
+      # pre-configuration for brew sources
+      "homebrew/cask"
+    ];
   };
 }

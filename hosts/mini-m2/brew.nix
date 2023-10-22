@@ -18,6 +18,7 @@
     ];
     casks = [
       "amethyst"
+      "brave-browser"
       "google-chrome"
       "iterm2"
       "spotify"

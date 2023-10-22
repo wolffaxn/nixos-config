@@ -59,28 +59,30 @@ Run Home Manager:
 ```sh
 $ cd ~/.dotfiles
 
-# to temporarily allow broken and unfree packages
-$ export NIXPKGS_ALLOW_BROKEN=1
-$ export NIXPKGS_ALLOW_UNFREE=1
-
 $ home-manager build
-$ home-manager switch --impure --flake .#deimos
+$ home-manager switch --flake .#$(hostname)
 ```
 
-On macOS you may also:
+On macOS you may also run nix-darwin:
 
 ```sh
-$ nix build ./#darwinConfigurations.deimos.system
+$ nix build ./#darwinConfigurations.$(hostname).system
 $ ./result/sw/bin/darwin-rebuild switch --flake .
 ```
 
 # Update & Garbage collect
 
-This will update all input channels to the latest version. After that you need to run home-manager to apply the changes.
+This will update all input channels to the latest version. After that you need to run home-manager or nix-darwin to apply the changes.
 
 ```sh
 $ nix flake update
-$ home-manager switch --impure --flake .#deimos
+$ home-manager switch --flake .#$(hostname)
+```
+
+```sh
+$ nix flake update
+$ nix build ./#darwinConfigurations.$(hostname).system
+$ ./result/sw/bin/darwin-rebuild switch --flake .
 ```
 
 Run garbage collector

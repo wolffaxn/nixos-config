@@ -1,17 +1,23 @@
 { pkgs, ...}: {
   
+  # allow fontconfig to discover fonts and configurations installed through home.packages
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    # monospace font with programming ligatures
-    fira-code
-    # monospace font for Firefox OS
-    fira-mono
-    # a typeface designed for source code
-    hack-font
-    # a typeface made for developers
-    jetbrains-mono
-    # a font for programming and code review
-    mononoki    
+    # see https://www.nerdfonts.com/font-downloads
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "FiraMono"
+        "Go-Mono"
+        "Hack"
+        "Hasklig"
+        "JetBrainsMono"
+        "Mononoki"
+        "SourceCodePro"
+        "Ubuntu"
+        "UbuntuMono"
+      ];
+    })
   ];
 }

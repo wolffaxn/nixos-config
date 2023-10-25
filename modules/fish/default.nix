@@ -17,6 +17,17 @@
       # calculates total disk usage for a folder
       du = "du -h -c";
   
+      # git aliases
+      ga = "git add";
+      gc = "git commit";
+      gco = "git checkout";
+      gcp = "git cherry-pick";
+      gdiff = "git diff";
+      gl = "git prettylog";
+      gp = "git push";
+      gs = "git status";
+      gt = "git tag";
+      
       # enable colors in grep
       grep ="grep --color=auto";
 

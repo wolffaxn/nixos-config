@@ -8,7 +8,7 @@
   wip = commit -am "WIP"
   
   # commit
-  ci = commit
+  c = commit
   # checkout
   co = checkout
   # checkout a branch, creating it if necessary
@@ -60,7 +60,7 @@
   this = "!git init && git commit --allow-empty -m 'initial commit'"
 
   # status
-  st = status -uall -b
+  s = status -uall -b
   # submodule
   sub = submodule update --remote --recursive
 

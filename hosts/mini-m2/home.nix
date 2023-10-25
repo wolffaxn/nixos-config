@@ -19,6 +19,7 @@
     ../../modules/wezterm
     ../../modules/yabai
     ../../modules/zellij
+    ../../modules/zoxide
     ../../modules/zsh
     ../../modules/xdg.nix
   ];

@@ -13,6 +13,7 @@
     ../../modules/git
     ../../modules/gpg
     ../../modules/neovim
+    ../../modules/nix
     ../../modules/ssh
     ../../modules/starship
     ../../modules/utils-bin

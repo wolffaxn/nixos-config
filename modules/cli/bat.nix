@@ -3,6 +3,7 @@
     enable = true;
     config = {
       theme = "Catppuccin-mocha";
+      italic-text = "always";
     };
   };
 

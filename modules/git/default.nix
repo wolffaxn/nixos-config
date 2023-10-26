@@ -5,6 +5,7 @@
       git-crypt
       git-lfs
       gitui
+      tig
   ];
 
   xdg.configFile = {

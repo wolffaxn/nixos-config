@@ -13,6 +13,7 @@
         "Hack"
         "Hasklig"
         "JetBrainsMono"
+        "Meslo"
         "Mononoki"
         "SourceCodePro"
         "Ubuntu"

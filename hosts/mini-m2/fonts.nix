@@ -16,6 +16,7 @@
         "Meslo"
         "Mononoki"
         "SourceCodePro"
+        "SpaceMono"
         "Ubuntu"
         "UbuntuMono"
       ];

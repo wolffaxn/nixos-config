@@ -31,7 +31,7 @@
         modules = [
           home-manager.darwinModules.home-manager {
             home-manager.useGlobalPkgs = true;
-            #home-manager.useUserPackages = true;
+            home-manager.useUserPackages = true;
             home-manager.users.alex = import ./hosts/mini-m2/home.nix;
           }
           ./hosts/mini-m2/configuration.nix

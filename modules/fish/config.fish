@@ -10,4 +10,7 @@ if test -d "/opt/homebrew"
     set -q PATH; or set PATH ''; set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbin" $PATH;
 end
 
+# https://github.com/DeterminateSystems/nix-installer/issues/234
+set -gx NIX_PATH "nixpkgs=flake:nixpkgs"
+
 eval "$(/opt/homebrew/bin/brew shellenv)"

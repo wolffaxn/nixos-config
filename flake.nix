@@ -27,6 +27,7 @@
     darwinConfigurations = {
       deimos = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
+        inputs = inputs;
         modules = [
           home-manager.darwinModules.home-manager {
             home-manager.useGlobalPkgs = true;

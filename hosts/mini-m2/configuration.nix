@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ inputs, lib, pkgs, ... }: {
 
   imports = [
     ./brew.nix

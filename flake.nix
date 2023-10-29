@@ -17,10 +17,19 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # neovim
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: {
-
+  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: let 
+    overlays = [
+      inputs.neovim-nightly.overlay
+    ];  
+  in {
     defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
 
     # macOS systems using nix-darwin
@@ -28,13 +37,16 @@
       deimos = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         inputs = inputs;
+
         modules = [
+          { nixpkgs.overlays = overlays; }
+
+          ./hosts/mini-m2/configuration.nix
           home-manager.darwinModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.alex = import ./hosts/mini-m2/home.nix;
           }
-          ./hosts/mini-m2/configuration.nix
         ];
       };
     };

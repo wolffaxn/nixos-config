@@ -1,3 +1,4 @@
+require("user.options")
 
 --
 -- UI

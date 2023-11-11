@@ -1,0 +1,31 @@
+vim.opt.compatible = false
+
+vim.opt.background = "dark"
+vim.opt.backspace = { "indent", "eol", "start" }
+vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true
+vim.opt.expandtab = true
+vim.opt.hidden = true
+vim.opt.ignorecase = true
+vim.opt.incsearch = true
+vim.opt.laststatus = 2
+vim.opt.list = false
+vim.opt.listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣"
+vim.opt.mouse = ""
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.ruler = true
+vim.opt.shiftwidth = 2
+vim.opt.smartindent = true
+vim.opt.softtabstop = 4
+vim.opt.spell = true
+vim.opt.spelllang = { "de_de", "en_us" }
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("data") .. "undodir"

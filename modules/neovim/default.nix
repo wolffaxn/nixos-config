@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   programs.neovim = {
     enable = true;
     #package = pkgs.neovim-nightly;
@@ -11,7 +11,13 @@
 
     withPython3 = true;
 
-    plugins = with pkgs; [
+    plugins = with pkgs.vimPlugins; [
+      # ui
+      catppuccin-nvim
     ];
   };
+
+  xdg.configFile."nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./config;
+  };  
 }

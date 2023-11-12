@@ -18,5 +18,8 @@ keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 
+-- toggle filebrowser
+keymap({'n', 'i', 'v'}, '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
+
 -- save
 keymap("n", "<leader>w", ":write<CR>", opts)

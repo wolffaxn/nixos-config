@@ -26,6 +26,7 @@ opt.relativenumber = true               -- show relative line number in front of
 opt.ruler = true                        -- show cursor line and column in the status line
 opt.scrolloff = 4                       -- minimum nr. of lines above and below cursor
 opt.showmatch = true                    -- briefly jump to matching bracket if insert one
+opt.showmode = false                    -- message on status line to show current mode
 opt.signcolumn = 'yes'                  -- when and how to display the sign column
 opt.splitbelow = true                   -- new window from split is below the current one
 opt.splitright = true                   -- new window is put right of the current one

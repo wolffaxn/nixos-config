@@ -14,6 +14,7 @@
     plugins = with pkgs.vimPlugins; [
       # ui
       catppuccin-nvim
+      lualine-nvim
     ];
   };
 

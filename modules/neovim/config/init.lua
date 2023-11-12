@@ -5,3 +5,4 @@ require("user.keymaps")
 -- UI
 --
 require("user.colorscheme")
+require("user.lualine")

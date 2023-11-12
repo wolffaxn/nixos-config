@@ -1,18 +1,22 @@
-name: ci
+name: CI
 
 on:
   pull_request:
   push:
-    paths:
-      - ".github/workflows/*.yml"
-      - "**.lock"
-      - "**.nix"
+    branches: [main]
   workflow_dispatch:
   
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - run: nix flake check --show-trace --accept-flake-config
+      - name: Checkout repository    
+        uses: actions/checkout@v4
+      
+      - name: Install Nix      
+        uses: DeterminateSystems/nix-installer-action@main
+      
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      
+      - name: Check flake
+        run: nix flake check --show-trace --accept-flake-config

@@ -48,7 +48,7 @@ font:
 shell:
   program: zellij
   args:
-    - options 
+    - options
     - --default-shell 
     - fish
 

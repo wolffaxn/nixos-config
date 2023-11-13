@@ -19,6 +19,7 @@
     ../../modules/utils-bin
     ../../modules/wezterm
     ../../modules/yabai
+    ../../modules/yamllint
     ../../modules/zellij
     ../../modules/zoxide
     ../../modules/zsh

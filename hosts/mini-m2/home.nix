@@ -3,7 +3,7 @@
     ./fonts.nix
     ./packages.nix
     ../../modules/alacritty
-    ../../modules/aws
+    #../../modules/aws
     ../../modules/azure
     ../../modules/cli
     ../../modules/dev

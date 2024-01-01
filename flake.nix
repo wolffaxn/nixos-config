@@ -27,9 +27,7 @@
 
   outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: let 
     overlays = [
-      # Temporarily disable until the libvterm-neovim fix (0.3.2 -> 0.3.3) hits main. 
-      # See https://github.com/NixOS/nixpkgs/pull/264096
-      #inputs.neovim-nightly.overlay
+      inputs.neovim-nightly.overlay
     ];  
   in {
     defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;

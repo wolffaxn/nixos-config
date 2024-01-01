@@ -7,6 +7,9 @@
   # Nix configuration
 
   nix = {
+    # https://github.com/LnL7/nix-darwin/issues/287
+    #configureBuildUsers = true;
+
     # enable experimental nix command and flakes
     extraOptions = ''
       # Linking issue: https://github.com/NixOS/nix/issues/7273

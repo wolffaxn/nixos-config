@@ -25,7 +25,9 @@
     ];
     taps = [
       # pre-configuration for brew sources
-      "homebrew/cask"
+      
+      # Tapping homebrew/cask is no longer typically necessary
+      #"homebrew/cask"
     ];
   };
 }

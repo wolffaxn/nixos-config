@@ -7,6 +7,10 @@
     yubikey-manager
   ];
 
+  home.sessionVariables = { 
+    SSH_AUTH_SOCK = "/tmp/yubikey-agent.sock";
+  };
+
   home.file = {
     ".gnupg/gpg-agent.conf".source = config.lib.file.mkOutOfStoreSymlink ./gpg-agent.conf;
     ".gnupg/gpg.conf".source = config.lib.file.mkOutOfStoreSymlink ./gpg.conf;

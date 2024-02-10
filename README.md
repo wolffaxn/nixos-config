@@ -1,9 +1,9 @@
-# dotfiles
+# nixos-config
 
 [![Built with Nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=5277c3)](https://builtwithnix.org)
 [![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/wolffaxn/dotfiles/main.svg)](https://github.com/wolffaxn/dotfiles)
+[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/wolffaxn/nixos-config/main.svg)](https://github.com/wolffaxn/nixos-config)
 
 Configuration files for MacOS and NixOS.
 
@@ -48,8 +48,8 @@ $ nix shell nixpkgs#git nixpkgs#openssh
 Clone dotfiles:
 
 ```sh
-$ git clone git@github.com:wolffaxn/dotfiles.git ~/.dotfiles
-Cloning into '/Users/alex/.dotfiles'...
+$ git clone git@github.com:wolffaxn/nixos-config.git ~/.nixos-config
+Cloning into '/Users/alex/.nixos-config'...
 Confirm user presence for key ED25519-SK SHA256:qnkGlZ1hUW3Ub7j3l440jE/8fA+z7hHzMc8U6RYKcfI
 ...
 ```
@@ -57,7 +57,7 @@ Confirm user presence for key ED25519-SK SHA256:qnkGlZ1hUW3Ub7j3l440jE/8fA+z7hHz
 Run Home Manager:
 
 ```sh
-$ cd ~/.dotfiles
+$ cd ~/.nixos-config
 
 $ home-manager build
 $ home-manager switch --flake .#$(hostname)

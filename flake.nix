@@ -4,7 +4,7 @@
   inputs = {
     # nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # home-manager
     home-manager = {
@@ -25,12 +25,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: let 
-    overlays = [
-      inputs.neovim-nightly.overlay
-    ];  
-  in {
+  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: {
     defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
+
+    nixosConfigurations = {
+      nixbox = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./hosts/vm-aarch64-utm/configuration.nix
+        ];
+      };
+    };
 
     # macOS systems using nix-darwin
     darwinConfigurations = {
@@ -39,8 +43,6 @@
         inputs = inputs;
 
         modules = [
-          { nixpkgs.overlays = overlays; }
-
           ./hosts/mini-m2/configuration.nix
           home-manager.darwinModules.home-manager {
             home-manager.useGlobalPkgs = true;

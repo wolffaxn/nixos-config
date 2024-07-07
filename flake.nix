@@ -1,62 +1,93 @@
 {
-  description = "wolffaxn nix system configurations";
+  description = "Nix Flake";
 
   inputs = {
-    # nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    # NixPkgs
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    # NixPkgs Unstable
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # home-manager
+    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-darwin
+    # macOS Support
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # neovim
+    nixos-anywhere = {
+      url = "github:numtide/nixos-anywhere";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Generate System Images
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Snowfall Lib
+    snowfall-lib = {
+      url = "github:snowfallorg/lib?ref=v3.0.3";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Neovim
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # snowfall-lib
-    snowfall-lib = {
-      url = "github:snowfallorg/lib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: {
-    defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
+  outputs = inputs: let
+    lib = inputs.snowfall-lib.mkLib {
+      inherit inputs;
+      src = ./.;
 
-    nixosConfigurations = {
-      nixbox = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./hosts/vm-aarch64-utm/configuration.nix
-        ];
+      snowfall = {
+        meta = {
+          name = "nixlos";
+          title = "Nix Flakes";
+        };
+        namespace = "nixlos";
       };
     };
-
-    # macOS systems using nix-darwin
-    darwinConfigurations = {
-      deimos = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        inputs = inputs;
-
-        modules = [
-          ./hosts/mini-m2/configuration.nix
-          home-manager.darwinModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.alex = import ./hosts/mini-m2/home.nix;
-          }
-        ];
+  in
+    lib.mkFlake {
+      channels-config = {
+        allowUnfree = true;
       };
+
+      defaultPackage.aarch64-darwin = inputs.home-manager.defaultPackage.aarch64-darwin;
     };
-  };
+
+#
+#    nixosConfigurations = {
+#      nixbox = nixpkgs.lib.nixosSystem {
+#        modules = [
+#          ./hosts/vm-aarch64-utm/configuration.nix
+#        ];
+#      };
+#    };
+
+#    # macOS systems using nix-darwin
+#    darwinConfigurations = {
+#      deimos = darwin.lib.darwinSystem {
+#        system = "aarch64-darwin";
+#        inputs = inputs;
+
+#        modules = [
+#          ./hosts/mini-m2/configuration.nix
+#          home-manager.darwinModules.home-manager {
+#            home-manager.useGlobalPkgs = true;
+#            home-manager.useUserPackages = true;
+#            home-manager.users.alex = import ./hosts/mini-m2/home.nix;
+#          }
+#        ];
+#      };
+#    };
 }

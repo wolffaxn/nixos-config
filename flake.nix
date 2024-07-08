@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-anywhere = {
       url = "github:numtide/nixos-anywhere";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,10 +55,10 @@
 
       snowfall = {
         meta = {
-          name = "nixlos";
-          title = "Nix Flakes";
+          name = "nixos-config";
+          title = "NixOS Config";
         };
-        namespace = "nixlos";
+        namespace = "custom";
       };
     };
   in
@@ -62,17 +67,14 @@
         allowUnfree = true;
       };
 
-      defaultPackage.aarch64-darwin = inputs.home-manager.defaultPackage.aarch64-darwin;
-    };
+      # Add modules to all NixOS systems.
+      systems.modules.nixos = with inputs; [
+        home-manager.nixosModules.home-manager
+        disko.nixosModules.disko
+      ];
 
-#
-#    nixosConfigurations = {
-#      nixbox = nixpkgs.lib.nixosSystem {
-#        modules = [
-#          ./hosts/vm-aarch64-utm/configuration.nix
-#        ];
-#      };
-#    };
+
+    };
 
 #    # macOS systems using nix-darwin
 #    darwinConfigurations = {

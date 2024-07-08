@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
   pkgs.mkShell {
     NIX_CONFIG = "extra-experimental-features = nix-command flakes";
 
@@ -15,5 +15,4 @@
       ssh-to-age
       statix
     ];
-  };
 }

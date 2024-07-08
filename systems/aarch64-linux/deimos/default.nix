@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
-  imports =
-    [
-
-    ];
+{ pkgs, ... }: {
+  imports = [
+    ./hardware-configuration.nix
+    ./disks.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -13,16 +12,23 @@
   boot.supportedFilesystems = [ "btrfs" ];
 
   environment.systemPackages = with pkgs; [
-    cachix
+    age
+    alejandra
     coreutils
     curl
     git
+    gnupg
+    home-manager
     jq
+    sops
+    ssh-to-age
     unzip
     vim
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
+
+  networking.hostName = "deimos";
 
   nix = {
     extraOptions = ''
@@ -81,4 +87,6 @@
   };
 
   users.users.root.initialPassword = "root";
+
+  system.stateVersion = "24.05";
 }

@@ -67,13 +67,16 @@
         allowUnfree = true;
       };
 
-      # Add modules to all NixOS systems.
+      # add modules to all NixOS systems
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
         disko.nixosModules.disko
       ];
 
-
+      # add modules to all darwin systems
+      systems.modules.darwin = with inputs; [
+        home-manager.darwinModules.home-manager
+      ];
     };
 
 #    # macOS systems using nix-darwin

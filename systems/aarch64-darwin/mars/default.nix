@@ -1,4 +1,18 @@
-{ inputs, lib, pkgs, ... }: {
+{ config, lib, namespace, ... }:
+let
+  inherit (lib.${namespace}) enabled;
+
+  cfg = config.${namespace}.user;
+in
+{
+  custom = {
+    nix = enabled;
+
+    homebrew = {
+      enbaled = true;
+      masEnabled = true;
+    };
+  };
 
   environment.systemPath = [ "/opt/homebrew/bin" ];
 

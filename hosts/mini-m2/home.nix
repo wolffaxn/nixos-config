@@ -1,6 +1,5 @@
 { config, pkgs, ... }: {
   imports = [
-    ./fonts.nix
     ./packages.nix
     ../../modules/alacritty
     #../../modules/aws
@@ -34,7 +33,7 @@
 
     sessionVariables = {
       EDITOR = "nvim";
-      
+
       LANG = "en_US.UTF-8";
       LANGUAGE = "en_US";
       LC_ALL = "en_US.UTF-8";

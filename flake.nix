@@ -41,6 +41,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Snowfall Flake
+    snowfall-flake = {
+      url = "github:snowfallorg/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Neovim
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
@@ -56,7 +62,7 @@
       snowfall = {
         meta = {
           name = "nixos-config";
-          title = "NixOS Config";
+          title = "nixos-config";
         };
         namespace = "custom";
       };
@@ -81,16 +87,16 @@
 
 #    # macOS systems using nix-darwin
 #    darwinConfigurations = {
-#      deimos = darwin.lib.darwinSystem {
+#      mars = darwin.lib.darwinSystem {
 #        system = "aarch64-darwin";
 #        inputs = inputs;
-
+#
 #        modules = [
-#          ./hosts/mini-m2/configuration.nix
+#          ./systems/aarch64-darwin/mars/default.nix
 #          home-manager.darwinModules.home-manager {
 #            home-manager.useGlobalPkgs = true;
 #            home-manager.useUserPackages = true;
-#            home-manager.users.alex = import ./hosts/mini-m2/home.nix;
+#            home-manager.users.alex = import ./homes/aarch64-darwin/alex@mars/default.nix;
 #          }
 #        ];
 #      };

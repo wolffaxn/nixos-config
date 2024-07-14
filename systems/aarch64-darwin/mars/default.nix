@@ -14,7 +14,12 @@ in
     };
   };
 
-  environment.systemPath = [ "/opt/homebrew/bin" ];
+  environment = {
+    systemPackages = with pkgs; [
+      snowfallorg.flake
+    ];
+    systemPath = [ "/opt/homebrew/bin" ];
+  };
 
   networking = {
     computerName = "Mac mini";

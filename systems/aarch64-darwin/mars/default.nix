@@ -7,6 +7,138 @@
 
   environment.systemPath = [ "/opt/homebrew/bin" ];
 
+  homebrew = {
+    brews = [
+      "age"
+      "ansible"
+      "ansible-lint"
+      "asdf"
+      "autoconf"
+      "automake"
+      "awscli"
+      "azure-cli"
+      "bash"
+      "bash-completion"
+      "bat"
+      "btop"
+      "bzip2"
+      "ca-certificates"
+      "cmatrix"
+      "coreutils"
+      "csshx"
+      "curl"
+      "diff-so-fancy"
+      "direnv"
+      "dockutil"
+      "dos2unix"
+      "exiftool"
+      "eza"
+      "fd"
+      "ffmpegthumbnailer"
+      "fish"
+      "ffmpeg"
+      "fzf"
+      "gh"
+      "git"
+      "gitleaks"
+      "git-crypt"
+      "git-delta"
+      "git-lfs"
+      "gnu-sed"
+      "graphviz"
+      "grc"
+      "helmfile"
+      "htop"
+      "httpie"
+      "hub"
+      "lazygit"
+      "jenv"
+      "jq"
+      "jump"
+      "molecule"
+      "moreutils"
+      "nvim"
+      "openssh"
+      "openssl@3"
+      "opentofu"
+      "packer"
+      "pandoc"
+      "pgcli"
+      "plantuml"
+      "poppler"
+      "protobuf"
+      "pstree"
+      "pyenv"
+      "ripgrep"
+      "screenfetch"
+      "shellcheck"
+      "sqlite"
+      "ssh-copy-id"
+      "starship"
+      "stylua"
+      "tailscale"
+      "terraform"
+      "terragrunt"
+      "tig"
+      "tree"
+      "unar"
+      "watch"
+      "wget"
+      "yazi"
+      "ykman"
+      "zoxide"
+
+      # development
+      "ant"
+      "delve"
+      "gopls"
+      "gradle"
+      "lua"
+      "maven"
+      "rustup-init"
+      "sccache"
+      "zig"
+
+      # gnupg related tools
+      "gnupg"
+      "hopenpgp-tools"
+      "ykman"
+
+      # tmux related tools
+      "tmux"
+      "tpm"
+      "arl/arl/gitmux"
+
+      # zsh
+      "zsh"
+      "zsh-autosuggestions"
+      "zsh-completions"
+      "zsh-history-substring-search"
+      "zsh-syntax-highlighting"
+      "zsh-fast-syntax-highlighting"
+    ];
+    casks = [
+      "alacritty"
+      "amethyst"
+      "brave-browser"
+      "discord"
+      "google-chrome"
+      "hammerspoon"
+      "iterm2"
+      "karabiner-elements"
+      "keepassxc"
+      "obsidian"
+      "raycast"
+      "spotify"
+      "utm"
+      "vscodium"
+      "wezterm"
+    ];
+    taps = [
+      "arl/arl"
+    ];
+  };
+
   networking = {
     computerName = "Mac mini";
     hostName = "mars";
@@ -33,7 +165,7 @@
   users.users.alex = {
     name = "alex";
     home = "/Users/alex";
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
 
   system.stateVersion = 4;

@@ -1,11 +1,15 @@
-{ config, namespace, ... }:
-let
-  inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt;
+{ config, lib, ... }:
 
-  cfg = config.${namespace}.homebrew;
+let
+  inherit (lib) mkEnableOption mkIf;
+
+  cfg = config.custom.homebrew;
 in
 {
+  options.custom.homebrew = {
+    enable = mkEnableOption "homebrew";
+  };
+
   config = mkIf cfg.enable {
     homebrew = {
       enable = true;
@@ -25,8 +29,8 @@ in
       };
 
       taps = [
-        "homebrew/bundle";
-        "homebrew/services";
+        "homebrew/bundle"
+        "homebrew/services"
       ];
     };
   };

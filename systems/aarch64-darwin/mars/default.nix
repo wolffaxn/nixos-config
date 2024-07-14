@@ -1,25 +1,11 @@
-{ config, lib, namespace, ... }:
-let
-  inherit (lib.${namespace}) enabled;
-
-  cfg = config.${namespace}.user;
-in
+{ pkgs, ... }:
 {
   custom = {
-    nix = enabled;
-
-    homebrew = {
-      enbaled = true;
-      masEnabled = true;
-    };
+    nix.enable = true;
+    homebrew.enable = true;
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      snowfallorg.flake
-    ];
-    systemPath = [ "/opt/homebrew/bin" ];
-  };
+  environment.systemPath = [ "/opt/homebrew/bin" ];
 
   networking = {
     computerName = "Mac mini";
@@ -44,13 +30,11 @@ in
   time.timeZone = "Europe/Berlin";
 
   # we need to set this up so Nix knows what our home directory is (https://github.com/nix-community/home-manager/issues/4026)
-  users = [
-    {
-      username = "alex";
-      home = "/Users/alex";
-      shell = pkgs.fish;
-    };
-  ];
+  users.users.alex = {
+    name = "alex";
+    home = "/Users/alex";
+    shell = pkgs.fish;
+  };
 
   system.stateVersion = 4;
 }

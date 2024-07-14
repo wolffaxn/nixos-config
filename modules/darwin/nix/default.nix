@@ -1,11 +1,15 @@
-{ config, namespace, ... }:
-let
-  inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt;
+{ config, lib, pkgs, ... }:
 
-  cfg = config.${namespace}.nix;
+let
+  inherit (lib) mkEnableOption mkIf;
+
+  cfg = config.custom.nix;
 in
 {
+  options.custom.nix = {
+    enable = mkEnableOption "nix";
+  };
+
   config = mkIf cfg.enable {
     nix = {
       # https://github.com/LnL7/nix-darwin/issues/287

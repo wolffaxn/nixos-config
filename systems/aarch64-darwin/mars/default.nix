@@ -44,11 +44,13 @@ in
   time.timeZone = "Europe/Berlin";
 
   # we need to set this up so Nix knows what our home directory is (https://github.com/nix-community/home-manager/issues/4026)
-  users.users."alex" = {
-    name = "alex";
-    home = "/Users/alex";
-    shell = pkgs.fish;
-  };
+  users = [
+    {
+      username = "alex";
+      home = "/Users/alex";
+      shell = pkgs.fish;
+    };
+  ];
 
   system.stateVersion = 4;
 }

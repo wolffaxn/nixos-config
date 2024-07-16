@@ -9,10 +9,8 @@
       fonts.enable = true;
     };
 
-    homebrew.enable = true;
+    tools.homebrew.enable = true;
   };
-
-  environment.systemPath = [ "/opt/homebrew/bin" ];
 
   homebrew = {
     brews = [

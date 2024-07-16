@@ -4,6 +4,7 @@ with lib.${namespace};
 {
   custom = {
     programs = {
+      bat.enable = true;
       direnv.enable = true;
     };
 

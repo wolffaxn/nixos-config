@@ -150,9 +150,16 @@
     localHostName = "mars";
 
     # configure DNS for WiFi
-    knownNetworkServices = ["Wi-Fi"];
+    knownNetworkServices = [
+      "Ethernet"
+      "Thunderbolt Bridge"
+      "Wi-Fi"
+    ];
     # use cloudflare
-    dns = ["1.1.1.1" "1.0.0.1"];
+    dns = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
   };
 
   # auto upgrade nix package and the daemon service

@@ -2,12 +2,13 @@
 
 {
   custom = {
+    nix.enable = true;
+
     system = {
       defaults.enable = true;
       fonts.enable = true;
     };
 
-    nix.enable = true;
     homebrew.enable = true;
   };
 

@@ -1,16 +1,23 @@
-{ config, lib, ... }:
+{ config, lib, namespace, ... }:
 
+with lib;
+with lib.${namespace};
 let
-  inherit (lib) mkEnableOption mkIf;
-
-  cfg = config.custom.homebrew;
+  cfg = config.${namespace}.tools.homebrew;
 in
 {
-  options.custom.homebrew = {
-    enable = mkEnableOption "homebrew";
+  options.${namespace}.tools.homebrew = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "enable or disable homebrew";
+    };
   };
 
   config = mkIf cfg.enable {
+
+    environment.systemPath = [ "/opt/homebrew/bin" ];
+
     homebrew = {
       enable = true;
 

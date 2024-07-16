@@ -56,7 +56,6 @@ in
           };
         };
         NSGlobalDomain = {
-          AppleInterfaceStyle = "light";
           ApplePressAndHoldEnabled = false;
           AppleShowScrollBars = "Always";
           _HIHideMenuBar = false;

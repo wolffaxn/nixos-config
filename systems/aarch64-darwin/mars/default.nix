@@ -1,6 +1,11 @@
 { pkgs, ... }:
+
 {
   custom = {
+    system = {
+      fonts.enable = true;
+    }
+
     nix.enable = true;
     homebrew.enable = true;
   };

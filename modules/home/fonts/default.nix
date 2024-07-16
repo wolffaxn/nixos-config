@@ -1,10 +1,19 @@
-{ config, namespace, ... }:
-let
-  inherit (lib) mkIf;
+{ config, lib, namespace, pkgs, ... }:
 
+with lib;
+with lib.${namespace};
+let
   cfg = config.${namespace}.fonts;
 in
 {
+  options.${namespace}.fonts = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Whether to enable fonts";
+    };
+  };
+
   config = mkIf cfg.enable {
     # allow fontconfig to discover fonts and configurations installed through home.packages
     fonts.fontconfig.enable = true;

@@ -3,6 +3,10 @@
 with lib.${namespace};
 {
   custom = {
+    programs = {
+      direnv.enable = true;
+    };
+
     shells = {
       bash.enable = true;
     };

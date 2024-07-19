@@ -9,6 +9,7 @@ with lib.${namespace};
       bat.enable = true;
       direnv.enable = true;
       eza.enable = true;
+      gh.enable = true;
     };
 
     shells = {

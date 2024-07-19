@@ -4,6 +4,7 @@ with lib.${namespace};
 {
   custom = {
     programs = {
+      azure.enable = true;
       bat.enable = true;
       direnv.enable = true;
       eza.enable = true;

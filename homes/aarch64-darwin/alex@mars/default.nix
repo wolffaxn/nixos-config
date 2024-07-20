@@ -4,6 +4,7 @@ with lib.${namespace};
 {
   custom = {
     programs = {
+      alacritty.enable = true;
       azure.enable = true;
       aws.enable = true;
       bat.enable = true;

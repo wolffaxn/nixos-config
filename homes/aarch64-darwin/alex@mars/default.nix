@@ -11,6 +11,7 @@ with lib.${namespace};
       eza.enable = true;
       gh.enable = true;
       yamllint.enable = true;
+      zoxide.enable = true;
     };
 
     shells = {

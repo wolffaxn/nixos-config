@@ -1,7 +1,7 @@
 function bak -d "create backup file"
     if not test -f $argv
-        echo "File not found: $argv"
-        return 0
+        echo (set_color red) "File not found: $argv" >&2
+        return 1
     end
 
     set -l filename $argv[1]

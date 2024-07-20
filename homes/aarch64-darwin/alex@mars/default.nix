@@ -10,6 +10,7 @@ with lib.${namespace};
       direnv.enable = true;
       eza.enable = true;
       gh.enable = true;
+      yamllint.enable = true;
     };
 
     shells = {

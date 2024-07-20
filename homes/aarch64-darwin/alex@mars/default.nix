@@ -14,6 +14,7 @@ with lib.${namespace};
 
     shells = {
       bash.enable = true;
+      starship.enable = true;
     };
 
     fonts.enable = false;

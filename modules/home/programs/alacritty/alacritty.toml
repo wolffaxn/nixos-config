@@ -1,0 +1,76 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator
+
+# Live config reload (changes require restart)
+import = ["~/.config/alacritty/themes/catppuccin-mocha.toml"]
+live_config_reload = true
+
+[bell]
+animation = "EaseOutExpo"
+
+[cursor]
+style = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+# Font configuration (changes require restart)
+
+# Point size of the font
+[font]
+builtin_box_drawing = true
+size = 16.0
+
+# Normal (roman) font face
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+# Bold font face
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+# Bold Italic font face
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+# Italic font face
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+[mouse]
+hide_when_typing = true
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[shell]
+program = "/opt/homebrew/bin/fish"
+args = ["-l", "-c", "tmux new-session -A -s '#H'"]
+
+[window]
+blur = true
+decorations = "buttonless"
+dynamic_padding = false
+opacity = 0.8
+
+# Window padding (changes require restart)
+#
+# Blank space added around the window in pixels. This padding is not scaled
+# by DPI and the specified value is always added at both opposing sides.
+[window.padding]
+x = 25
+y = 20

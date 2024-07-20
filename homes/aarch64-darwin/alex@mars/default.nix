@@ -17,6 +17,7 @@ with lib.${namespace};
 
     shells = {
       bash.enable = true;
+      fish.enable = true;
       starship.enable = true;
     };
 

@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.development.kotlin = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable kotlin";
-    };
+    enable = mkBoolOpt false "Whether or not to install kotlin";
   };
 
   config = mkIf cfg.enable {

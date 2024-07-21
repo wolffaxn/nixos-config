@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.shells.bash = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable bash";
-    };
+    enable = mkBoolOpt false "Whether or not to enable bash shell";
   };
 
   config = mkIf cfg.enable {

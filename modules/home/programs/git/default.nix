@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.git = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable git";
-    };
+    enable = mkBoolOpt false "Whether or not to enable git";
   };
 
   config = mkIf cfg.enable {

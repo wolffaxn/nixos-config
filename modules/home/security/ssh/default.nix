@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.security.ssh = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable ssh";
-    };
+    enable = mkBoolOpt false "Whether or not to enable ssh client";
   };
 
   config = mkIf cfg.enable {

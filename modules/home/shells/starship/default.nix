@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.shells.starship = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable starship";
-    };
+    enable = mkBoolOpt false "Whether or not to enable starship";
   };
 
   config = mkIf cfg.enable {

@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.system.fonts = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "enable or disable system fonts";
-    };
+    enable = mkBoolOpt false "Whether or not to install fonts";
   };
 
   config = mkIf cfg.enable {

@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.development.golang = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable golang";
-    };
+    enable = mkBoolOpt false "Whether or not to install golange";
   };
 
   config = mkIf cfg.enable {

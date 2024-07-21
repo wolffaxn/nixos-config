@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.aws = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable aws cli";
-    };
+    enable = mkBoolOpt false "Whether or not to enable aws cli";
   };
 
   config = mkIf cfg.enable {

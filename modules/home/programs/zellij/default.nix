@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.zellij = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable zellij";
-    };
+    enable = mkBoolOpt false "Whether or not to enable zellij";
   };
 
   config = mkIf cfg.enable {

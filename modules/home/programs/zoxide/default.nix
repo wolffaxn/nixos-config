@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.zoxide = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable zoxide";
-    };
+    enable = mkBoolOpt false "Whether or not to enable zoxide";
   };
 
   config = mkIf cfg.enable {

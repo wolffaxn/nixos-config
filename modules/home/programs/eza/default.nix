@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.eza = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable eza";
-    };
+    enable = mkBoolOpt false "Whether or not to enable eza";
   };
 
   config = mkIf cfg.enable {

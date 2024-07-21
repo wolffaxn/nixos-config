@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.shells.zsh = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable zsh";
-    };
+    enable = mkBoolOpt false "Whether or not to enable zsh shell";
   };
 
   config = mkIf cfg.enable {

@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.gh = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable gh";
-    };
+    enable = mkBoolOpt false "Whether or not to enable gh";
   };
 
   config = mkIf cfg.enable {

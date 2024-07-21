@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.tools.homebrew = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "enable or disable homebrew";
-    };
+    enable = mkBoolOpt false "Whether or not to install homebrew";
   };
 
   config = mkIf cfg.enable {

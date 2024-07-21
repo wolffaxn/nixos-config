@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.development.zig = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable zig";
-    };
+    enable = mkBoolOpt false "Whether or not to install zig";
   };
 
   config = mkIf cfg.enable {

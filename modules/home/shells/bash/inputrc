@@ -1,0 +1,26 @@
+# enable case-insensitive tab completion
+set completion-ignore-case on
+# add trailing slash in bash completion of directory symbolic links
+set mark-symlinked-directories on
+# list all matches in case more than one possible completion
+set show-all-if-ambiguous on
+
+# show all autocomplete results at once
+set page-completions off
+# if there are more than 200 possible completions for a word, ask to show them all
+set completion-query-items 200
+
+# allow UTF-8 input and output
+set input-meta on
+set output-meta on
+set convert-meta off
+
+set editing-mode vi
+
+$if mode=vi
+    set keymap vi-command
+    Control-l: clear-screen
+
+    set keymap vi-insert
+    Control-l: clear-screen
+$endif

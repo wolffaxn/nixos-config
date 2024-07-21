@@ -14,6 +14,14 @@ in
     programs.bash = {
       enable = true;
       enableCompletion = true;
+      bashrcExtra = ''
+        ${builtins.readFile ./bashrc}
+      '';
+    };
+
+    home.file = {
+      ".hushlogin".source = config.lib.file.mkOutOfStoreSymlink ./hushlogin;
+      ".inputrc".source = config.lib.file.mkOutOfStoreSymlink ./inputrc;
     };
   };
 }

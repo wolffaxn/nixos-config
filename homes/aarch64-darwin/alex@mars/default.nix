@@ -23,6 +23,10 @@ with lib.${namespace};
       starship.enable = true;
     };
 
+    security = {
+      gpg.enable = true;
+    };
+
     development = {
       golang.enable = true;
       java.enable = true;

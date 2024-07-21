@@ -1,8 +1,13 @@
+t# aliases
+
 # reload zsh config
 alias zreload='source $ZDOTDIR/.zshrc'
 
 # cd shorthand
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ~='cd ~'
+alias -- -='cd -'
 
 # clear screen
 alias cls='clear'
@@ -23,19 +28,12 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-case $(uname) in
-  Darwin)
-    alias ll='ls -alGpF'
-    alias ls='ls -GpF'
-  ;;
-  *)
-    alias ll='ls -al'
-    alias ls='ls --color=auto'
-  ;;
-esac
-
-# get week number
-alias week='date +%V'
+# better ls
+alias l='eza -al --icons --group-directories-first'
+alias ll='eza -a --icons --group-directories-first'
 
 # httpie
 alias https='http --default-scheme=https'
+
+# get week number
+alias week='date +%V'

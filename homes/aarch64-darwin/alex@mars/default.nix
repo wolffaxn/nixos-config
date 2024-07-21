@@ -18,6 +18,7 @@ with lib.${namespace};
     shells = {
       bash.enable = true;
       fish.enable = true;
+      zsh.enable = true;
       starship.enable = true;
     };
 

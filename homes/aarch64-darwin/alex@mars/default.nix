@@ -12,6 +12,7 @@ with lib.${namespace};
       eza.enable = true;
       gh.enable = true;
       git.enable = true;
+      wezterm.enable = true;
       yamllint.enable = true;
       zellij.enable = true;
       zoxide.enable = true;

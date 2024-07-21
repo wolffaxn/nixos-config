@@ -12,6 +12,7 @@ with lib.${namespace};
       eza = enabled;
       gh = enabled;
       git = enabled;
+      hammerspoon = enabled;
       wezterm = enabled;
       yamllint = enabled;
       zellij = enabled;

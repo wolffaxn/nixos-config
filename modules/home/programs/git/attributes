@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.gif diff=exif
+*.jpeg diff=exif
+*.jpg diff=exif
+*.plist diff=plist
+*.png diff=exif
+*.webp diff=exif

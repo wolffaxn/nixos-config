@@ -22,6 +22,10 @@ with lib.${namespace};
       starship.enable = true;
     };
 
+    development = {
+      golang.enable = true;
+    };
+
     fonts.enable = false;
   };
 

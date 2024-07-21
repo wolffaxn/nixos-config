@@ -28,6 +28,7 @@ with lib.${namespace};
       kotlin.enable = true;
       lua.enable = true;
       python.enable = true;
+      rust.enable = true;
     };
 
     fonts.enable = false;

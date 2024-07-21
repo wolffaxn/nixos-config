@@ -26,6 +26,7 @@ with lib.${namespace};
       golang.enable = true;
       java.enable = true;
       kotlin.enable = true;
+      lua.enable = true;
     };
 
     fonts.enable = false;

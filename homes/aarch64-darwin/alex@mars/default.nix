@@ -27,6 +27,7 @@ with lib.${namespace};
 
     security = {
       gpg.enable = true;
+      ssh.enable = true;
     };
 
     development = {

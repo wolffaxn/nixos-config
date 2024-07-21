@@ -1,5 +1,0 @@
-Host github.com
-    AddKeysToAgent yes
-    IdentityFile ~/.ssh/id_ed25519_sk
-    IdentitiesOnly yes
-    MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com

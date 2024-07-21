@@ -27,6 +27,7 @@ with lib.${namespace};
       java.enable = true;
       kotlin.enable = true;
       lua.enable = true;
+      python.enable = true;
     };
 
     fonts.enable = false;

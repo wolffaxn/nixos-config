@@ -24,6 +24,7 @@ with lib.${namespace};
 
     development = {
       golang.enable = true;
+      java.enable = true;
     };
 
     fonts.enable = false;

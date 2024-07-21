@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.direnv = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable direnv";
-    };
+    enable = mkBoolOpt false "Whether or not to enable direnv";
   };
 
   config = mkIf cfg.enable {

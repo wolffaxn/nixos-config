@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.bat = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable bat";
-    };
+    enable = mkBoolOpt false "Whether or not to enable bat";
   };
 
   config = mkIf cfg.enable {

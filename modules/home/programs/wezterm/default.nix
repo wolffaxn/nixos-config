@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.wezterm = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable wezterm";
-    };
+    enable = mkBoolOpt false "Whether or not to enable wezterm";
   };
 
   config = mkIf cfg.enable {

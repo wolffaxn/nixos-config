@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.nix = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "enable or disable configuration for nix";
-    };
+    enable = mkBoolOpt false "Whether or not to manage nix configuration";
   };
 
   config = mkIf cfg.enable {

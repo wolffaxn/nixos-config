@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.development.java = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable java";
-    };
+    enable = mkBoolOpt false "Whether or not to install java";
   };
 
   config = mkIf cfg.enable {

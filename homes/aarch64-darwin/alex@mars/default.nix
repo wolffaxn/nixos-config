@@ -4,43 +4,43 @@ with lib.${namespace};
 {
   custom = {
     programs = {
-      alacritty.enable = true;
-      azure.enable = true;
-      aws.enable = true;
-      bat.enable = true;
-      direnv.enable = true;
-      eza.enable = true;
-      gh.enable = true;
-      git.enable = true;
-      wezterm.enable = true;
-      yamllint.enable = true;
-      zellij.enable = true;
-      zoxide.enable = true;
+      alacritty = enabled;
+      azure = enabled;
+      aws = enabled;
+      bat = enabled;
+      direnv = enabled;
+      eza = enabled;
+      gh = enabled;
+      git = enabled;
+      wezterm = enabled;
+      yamllint = enabled;
+      zellij = enabled;
+      zoxide = enabled;
     };
 
     shells = {
-      bash.enable = true;
-      fish.enable = true;
-      zsh.enable = true;
-      starship.enable = true;
+      bash = enabled;
+      fish = enabled;
+      zsh = enabled;
+      starship = enabled;
     };
 
     security = {
-      gpg.enable = true;
-      ssh.enable = true;
+      gpg = enabled;
+      ssh = enabled;
     };
 
     development = {
-      golang.enable = true;
-      java.enable = true;
-      kotlin.enable = true;
-      lua.enable = true;
-      python.enable = true;
-      rust.enable = true;
-      zig.enable = true;
+      golang = enabled;
+      java = enabled;
+      kotlin = enabled;
+      lua = enabled;
+      python = enabled;
+      rust = enabled;
+      zig = enabled;
     };
 
-    fonts.enable = false;
+    fonts = disabled;
   };
 
   home.stateVersion = "24.05";

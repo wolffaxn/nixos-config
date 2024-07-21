@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.development.lua = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable lua";
-    };
+    enable = mkBoolOpt false "Whether or not to install lua";
   };
 
   config = mkIf cfg.enable {

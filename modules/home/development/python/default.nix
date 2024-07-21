@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.development.python = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable python";
-    };
+    enable = mkBoolOpt false "Whether or not to install python";
   };
 
   config = mkIf cfg.enable {

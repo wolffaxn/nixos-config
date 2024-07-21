@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.azure = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable azure cli";
-    };
+    enable = mkBoolOpt false "Whether or not to enable azure cli";
   };
 
   config = mkIf cfg.enable {

@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.alacritty = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable alacritty";
-    };
+    enable = mkBoolOpt false "Whether or not to enable alacritty";
   };
 
   config = mkIf cfg.enable {

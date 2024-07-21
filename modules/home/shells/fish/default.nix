@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.shells.fish = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable fish";
-    };
+    enable = mkBoolOpt false "Whether or not to enable fish shell";
   };
 
   config = mkIf cfg.enable {

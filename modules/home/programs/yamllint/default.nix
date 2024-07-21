@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.programs.yamllint = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to enable yamllint";
-    };
+    enable = mkBoolOpt false "Whether or not to enable yamllint";
   };
 
   config = mkIf cfg.enable {

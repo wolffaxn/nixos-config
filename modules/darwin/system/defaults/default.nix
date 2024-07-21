@@ -7,11 +7,7 @@ let
 in
 {
   options.${namespace}.system.defaults = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "enable or disable system settings";
-    };
+    enable = mkBoolOpt false "Whether or not to enable system settings";
   };
 
   config = mkIf cfg.enable {

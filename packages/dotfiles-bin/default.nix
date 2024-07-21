@@ -1,7 +1,8 @@
 { pkgs, ... }: {
+
   home.packages = [
     (pkgs.stdenv.mkDerivation {
-      name = "utils-bin";
+      name = "wolffaxn_dotfiles-bin";
       version = "unstable";
       src = ./bin;
       installPhase = ''

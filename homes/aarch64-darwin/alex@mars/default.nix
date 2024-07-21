@@ -11,6 +11,7 @@ with lib.${namespace};
       direnv.enable = true;
       eza.enable = true;
       gh.enable = true;
+      git.enable = true;
       yamllint.enable = true;
       zoxide.enable = true;
     };

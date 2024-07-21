@@ -6,11 +6,7 @@
   amend = commit --amend --reuse-message=HEAD
   # work in progress
   wip = commit -am "WIP"
-  
-  # commit
-  c = commit
-  # checkout
-  co = checkout
+
   # checkout a branch, creating it if necessary
   cob = !sh -c 'git checkout -b $1 2> /dev/null || git checkout $1'
 
@@ -19,9 +15,6 @@
 
   # clean up local repository
   cleanup = !sh -c 'git gc --prune=now && git remote prune origin'
-
-  # cherry pick
-  cp = cherry-pick
 
   # reset
   destroy = reset --hard
@@ -63,6 +56,9 @@
   s = status -uall -b
   # submodule
   sub = submodule update --remote --recursive
+
+  dump = cat-file -p
+  type = cat-file -t
 
   # show verbose output about tags, branches or remotes
   tags = tag -l

@@ -13,6 +13,7 @@ with lib.${namespace};
       gh.enable = true;
       git.enable = true;
       yamllint.enable = true;
+      zellij.enable = true;
       zoxide.enable = true;
     };
 

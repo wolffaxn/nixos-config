@@ -1,0 +1,39 @@
+# See https://github.com/arl/gitmux/blob/main/.gitmux.yml
+tmux:
+  symbols:
+    branch: ""
+    hashprefix: ":"
+    ahead: "↑·"
+    behind: "↓·"
+    staged: " "
+    conflict: "✖ "
+    modified: " "
+    untracked: "󱀶 "
+    stashed: " "
+    insertions: " "
+    deletions: " "
+    clean: " "
+
+  styles:
+    clear: "#[none]"
+    state: "#[fg=red,nobold]"
+    branch: "#[fg=white,nobold]"
+    remote: "#[fg=white,nobold]"
+    divergence: "#[fg=yellow,nobold]"
+    staged: "#[fg=green,nobold]"
+    conflict: "#[fg=red,nobold]"
+    modified: "#[fg=blue,nobold]"
+    untracked: "#[fg=gray,nobold]"
+    stashed: "#[fg=gray,nobold]"
+    insertions: "#[fg=green,nobold]"
+    deletions: "#[fg=red,nobold]"
+    clean: "#[fg=green,nobold]"
+
+  layout: [branch, stats, flags, divergence]
+
+  options:
+    branch_max_len: 0
+    branch_trim: right
+    ellipsis: …
+    hide_clean: true
+    swap_divergence: false

@@ -16,6 +16,7 @@ with lib.${namespace};
       htop = enabled;
       httpie = enabled;
       lazygit = enabled;
+      tmux = enabled;
       wezterm = enabled;
       yamllint = enabled;
       yazi = enabled;

@@ -16,5 +16,9 @@ in
       python311Packages.pip
       python311Packages.virtualenv
     ];
+
+    xdg.configFile = {
+      "pip/pip.conf".source = config.lib.file.mkOutOfStoreSymlink ./pip.conf;
+    };
   };
 }

@@ -1,0 +1,10 @@
+# don't print line longer than this limit (in bytes)
+--max-columns=150
+# show a preview for long lines
+--max-columns-preview
+# limit search depth for directories
+--max-depth=8
+# search hidden files & directories by default
+--hidden
+# search case insensitively if the pattern is all lowercase
+--smart-case

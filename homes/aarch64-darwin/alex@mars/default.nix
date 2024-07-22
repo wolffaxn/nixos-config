@@ -18,6 +18,7 @@ with lib.${namespace};
       httpie = enabled;
       karabiner-elements = enabled;
       lazygit = enabled;
+      ripgrep = enabled;
       tmux = enabled;
       wezterm = enabled;
       yamllint = enabled;

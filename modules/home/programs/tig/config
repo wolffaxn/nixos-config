@@ -1,0 +1,24 @@
+#
+# general settings
+#
+
+set tab-size = 4
+
+#
+# main view settings
+#
+
+# limit number of commits loaded to 1000
+set main-options = -n 1000
+
+set main-view = date:relative id:yes author:full commit-title:yes,graph:yes,refs:yes
+
+# don't show staged and unstaged changes in the main view
+set show-changes = no
+
+#
+# keymaps
+#
+
+# show/hide the ID column
+bind main I :toggle id

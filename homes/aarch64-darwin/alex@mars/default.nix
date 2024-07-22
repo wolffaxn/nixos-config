@@ -13,6 +13,7 @@ with lib.${namespace};
       gh = enabled;
       git = enabled;
       hammerspoon = enabled;
+      htop = enabled;
       httpie = enabled;
       wezterm = enabled;
       yamllint = enabled;

@@ -18,6 +18,7 @@ in
 
     xdg.configFile = {
       "cargo/config.toml".source = config.lib.file.mkOutOfStoreSymlink ./config.toml;
+      "rustup/settings.toml".source = config.lib.file.mkOutOfStoreSymlink ./settings.toml;
     };
   };
 }

@@ -9,6 +9,7 @@ with lib.${namespace};
       aws = enabled;
       bat = enabled;
       direnv = enabled;
+      editorconfig = enabled;
       eza = enabled;
       gh = enabled;
       git = enabled;

@@ -16,6 +16,7 @@ with lib.${namespace};
       hammerspoon = enabled;
       htop = enabled;
       httpie = enabled;
+      karabiner-elements = enabled;
       lazygit = enabled;
       tmux = enabled;
       wezterm = enabled;

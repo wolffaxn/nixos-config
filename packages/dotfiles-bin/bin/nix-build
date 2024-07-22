@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+set -eo pipefail
 
 declare FLAKE=$(hostname -s)
 declare SYSTEM=".#darwinConfigurations.$FLAKE.system"

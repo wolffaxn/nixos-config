@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # Sync remote fork from its parent
 #
 
-set -e
+set -eo pipefail
 
 declare -a dependencies=("gh" "jq")
 

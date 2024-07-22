@@ -1,0 +1,21 @@
+#!/us#!/usr/bin/env bash
+
+#
+# Updates the current git repository by changing to the default branch,
+# fetching and rebasing the latest changes from remote and removes all
+# merged branches.
+#
+
+set -eo pipefail
+
+REMOTE=${1:-origin}
+BRANCH=${2:-master}
+
+git fetch --prune "${REMOTE}"
+if [ "$(git rev-parse --abbrev-ref HEAD)" != "${BRANCH}" ]; then
+  git checkout "${BRANCH}"
+fi
+git rebase "${REMOTE}"/"${BRANCH}"
+
+# delete all merged branches ignoring current, master and develop branch
+git branch --merged | grep -vE "\*|main|master|develop" | xargs -n 1 git branch -d

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+#
+# Fetches remote changes from forked repository (upstream) and updates the
+# remote repository (origin).
+#
+
+set -eo pipefail
+
+ORIGIN=${1:-origin}
+UPSTREAM=${2:-upstream}
+BRANCH=${3:-master}
+
+git fetch --prune --tags  "${UPSTREAM}"
+if [ "$(git rev-parse --abbrev-ref HEAD)" != "${BRANCH}" ]; then
+  git checkout "${BRANCH}"
+fi
+git merge --ff-only "${UPSTREAM}"/"${BRANCH}"
+
+git push --prune "${ORIGIN}" "${BRANCH}"
+git push --tags "${ORIGIN}" "${BRANCH}"

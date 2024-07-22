@@ -50,6 +50,12 @@ in
             "askForPassword" = true;
             "askForPasswordDelay" = 0;
           };
+          "org.hammerspoon.Hammerspoon" = {
+            "MJConfigFile" = "~/.config/hammerspoon/init.lua";
+            "MJShowDockIconKey" = false;
+            "MJShowMenuIconKey" = false;
+            "MJSkipDockMenuIconProblemAlertKey" = true;
+          };
         };
         NSGlobalDomain = {
           ApplePressAndHoldEnabled = false;

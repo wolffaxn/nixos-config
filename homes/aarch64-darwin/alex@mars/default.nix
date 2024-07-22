@@ -18,6 +18,7 @@ with lib.${namespace};
       lazygit = enabled;
       wezterm = enabled;
       yamllint = enabled;
+      yazi = enabled;
       zellij = enabled;
       zoxide = enabled;
     };

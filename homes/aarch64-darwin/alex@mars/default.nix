@@ -15,6 +15,7 @@ with lib.${namespace};
       hammerspoon = enabled;
       htop = enabled;
       httpie = enabled;
+      lazygit = enabled;
       wezterm = enabled;
       yamllint = enabled;
       zellij = enabled;

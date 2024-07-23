@@ -2,3 +2,10 @@
 email = "wolffaxn@gmail.com"
 name = "Alexander Wolff"
 vcs = "git"
+
+[target.aarch64-apple-darwin]
+linker = "/usr/bin/clang"
+rustflags = [
+    "-Clink-arg=-fuse-ld=/opt/homebrew/bin/mold",
+    "-Zthreads=0"
+]

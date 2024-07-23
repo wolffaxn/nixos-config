@@ -60,6 +60,7 @@
       "jenv"
       "jq"
       "jump"
+      "mold"
       "molecule"
       "moreutils"
       "nvim"

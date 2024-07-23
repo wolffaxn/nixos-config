@@ -34,6 +34,10 @@ in
           ShowPathbar = true;
           ShowStatusBar = true;
         };
+        screencapture = {
+          location = "~/Pictures/Screenshots";
+          type = "png";
+        };
         CustomUserPreferences = {
           "com.apple.finder" = {
             "ShowExternalHardDrivesOnDesktop" = false;
